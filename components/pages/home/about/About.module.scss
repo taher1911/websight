@@ -1,0 +1,191 @@
+.about {
+  margin: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  .working,
+  .achievements {
+    display: flex;
+    width: 100%;
+    padding: 30px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 30px;
+    border: 1px solid #1c1f27;
+    box-shadow: 2px 2px 0px 0px #1c1f27;
+  }
+  .working {
+    gap: 30px;
+    background: #fff;
+
+    .text {
+      display: flex;
+      justify-content: center;
+      gap: 0.5em;
+      width: 90%;
+      p {
+        width: 194px;
+        color: #1c1f27;
+        // font-family: Kallisto;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 130%; /* 31.2px */
+      }
+    }
+    .images {
+      display: flex;
+      width: 291px;
+      height: 84px;
+      padding: 15px 0px 14px 19px;
+      justify-content: flex-start;
+      align-items: center;
+      overflow: hidden;
+      &:hover {
+        .container {
+          animation-play-state: paused;
+        }
+      }
+
+      .container {
+        display: flex;
+        gap: 30px;
+        width: 100%;
+        animation: animation 12s linear infinite alternate-reverse forwards;
+        img {
+          max-height: 55px;
+        }
+      }
+    }
+  }
+  .achievements {
+    gap: 24px;
+    background: #e0c6e4;
+    overflow: hidden;
+
+    p {
+      width: 198px;
+      color: #1c1f27;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 130%;
+    }
+    .cards {
+      display: flex;
+      color: #fff;
+
+      div {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 30px;
+        border: 1px solid #1c1f27;
+        background: #b889d8;
+        box-shadow: 2px 2px 0px 0px #1c1f27;
+        &.animate {
+          animation: animateCard 2s linear;
+        }
+
+        &:nth-of-type(2),
+        &:nth-of-type(3) {
+          margin-left: -3px;
+        }
+
+        .head,
+        .title {
+          color: #fff;
+        }
+        .head {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 4px;
+          span {
+            font-size: 32px;
+          }
+          svg {
+            animation: animateSvg 8s linear infinite alternate;
+          }
+        }
+        .title {
+          font-family: "Roboto", sans-serif;
+          font-size: 18px;
+          font-weight: 400;
+          line-height: normal;
+        }
+      }
+    }
+  }
+}
+
+@keyframes animation {
+  0% {
+    margin-left: -590%;
+  }
+  100% {
+    margin-left: 0%;
+  }
+}
+
+@keyframes animateCard {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+    z-index: 2;
+  }
+  50% {
+    transform: scale(1.1);
+    z-index: 2;
+  }
+  75% {
+    transform: scale(1.1);
+    z-index: 2;
+  }
+  100% {
+    transform: scale(1);
+    z-index: 2;
+  }
+}
+
+@keyframes animateSvg {
+  0% {
+    transform: rotate(0);
+  }
+  10% {
+    transform: rotate(-50deg);
+  }
+  20% {
+    transform: rotate(-50deg);
+  }
+  30% {
+    transform: rotate(0);
+  }
+  40% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(50deg);
+  }
+  60% {
+    transform: rotate(50deg);
+  }
+  70% {
+    transform: rotate(0);
+  }
+  80% {
+    transform: rotate(0);
+  }
+  90% {
+    transform: rotate(-50deg);
+  }
+  100% {
+    transform: rotate(-50deg);
+  }
+}

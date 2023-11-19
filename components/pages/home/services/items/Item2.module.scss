@@ -1,0 +1,126 @@
+.item {
+  width: 99.5%;
+  max-width: 300px;
+  height: 386px;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 58px;
+  border-radius: 30px;
+  border: 1px solid #1c1f27;
+  background: #e6f3f9;
+  box-shadow: 2px 2px 0px 0px #1c1f27;
+  margin: 0 auto;
+  .title {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+
+    .svg {
+      animation: animateSvg 4s ease-in-out infinite alternate;
+    }
+    p {
+      color: #1c1f27;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 130%;
+    }
+  }
+  .titles {
+    font-family: "Roboto", sans-serif;
+    // padding: 0 10%;
+    span {
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+    }
+
+    .el1 {
+      display: flex;
+      width: 187px;
+      height: 39px;
+      transform: rotate(-6.056deg) translateY(4px);
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      border-radius: 30px;
+      border: 1px solid #1c1f27;
+      background: #e6f3f9;
+      color: #000;
+      animation: animateEl1 2s ease-in-out infinite alternate;
+    }
+    .el2 {
+      display: flex;
+      width: 185px;
+      height: 39px;
+      transform: rotate(10.244deg) translateY(20px) translateX(30px);
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      border-radius: 30px;
+      border: 1px solid #1c1f27;
+      color: #1c1f27;
+      background: #e0c6e4;
+    }
+    .el3 {
+      display: flex;
+      width: 155px;
+      height: 39px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      border-radius: 30px;
+      border: 1px solid #b889d8;
+      background: #fff;
+      color: #1c1f27;
+      transform: translateY(30px);
+    }
+    .el4 {
+      display: flex;
+      width: 232px;
+      height: 39px;
+      transform: rotate(-10.273deg) translateY(34px);
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      border-radius: 30px;
+      border: 1px solid #1c1f27;
+      color: #1c1f27;
+      background: #b889d8;
+    }
+  }
+}
+
+@keyframes animateSvg {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+
+  50% {
+    transform: rotate(150deg) scale(0.9);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: rotate(0deg);
+    opacity: 1;
+    color: #b889d8 !important;
+  }
+}
+
+@keyframes animateEl1 {
+  0% {
+    transform: rotate(-6.056deg) translateY(4px);
+  }
+  100% {
+    transform: rotate(6.056deg) translateY(4px);
+  }
+}

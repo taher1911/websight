@@ -1,0 +1,49 @@
+.footer {
+  min-height: 343px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  border: 1px solid #1c1f27;
+  background: #b889d8;
+  box-shadow: 2px 2px 0px 1px #1c1f27;
+  margin: 20px 30px;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  .links {
+    margin: 1.4rem auto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    li {
+      margin: 5px 0;
+    }
+  }
+  .social {
+    p {
+      text-align: center;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      margin-bottom: 2px;
+    }
+  }
+
+  .copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .lang {
+      margin-top: 30px;
+      button {
+        margin: 0 5px;
+        &.gray {
+          color: rgba(255, 255, 255, 0.34);
+        }
+      }
+    }
+  }
+}
