@@ -1,5 +1,5 @@
 import HomeBtn from "@/components/homeBtn/HomeBtn";
-import classes from "./style.module.scss";
+import classes from "./Style.module.scss";
 
 export default function Landing() {
   return (
