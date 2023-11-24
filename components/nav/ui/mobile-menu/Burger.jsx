@@ -1,7 +1,7 @@
 export default function Burger({ clicked, setClicked }) {
   return (
     <div
-      className="flex flex-col justify-evenly items-end w-[32] h-[24px] cursor-pointer"
+      className="flex flex-col justify-evenly items-end w-[32] h-[24px] cursor-pointer z-20"
       onClick={setClicked}
     >
       <span
