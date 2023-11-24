@@ -7,7 +7,7 @@ export default function Home() {
     <main className="">
       <Landing />
       <About />
-      <Services />
+      <Services link={true} />
       <Projects />
     </main>
   );

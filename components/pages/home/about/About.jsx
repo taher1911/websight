@@ -1,10 +1,5 @@
-"use client";
-import { motion } from "framer-motion";
-
-import HomeBtn from "@/components/homeBtn/HomeBtn";
-
 import classes from "./About.module.scss";
-import { useState } from "react";
+import Achievements from "@/components/shared/achievements/Achievements";
 export default function About() {
   const images = [
     "w1",
@@ -25,20 +20,7 @@ export default function About() {
     "w16",
     "w17",
   ];
-  const cards = [
-    { id: 1, num: 48, title: "Projects" },
-    { id: 2, num: 22, title: "Clients" },
-    { id: 3, num: 32, title: "Websites" },
-  ];
-  const [active, setActive] = useState(1);
-  const interval = setInterval(() => {
-    if (active == 3) {
-      setActive(1);
-    } else {
-      setActive(active + 1);
-    }
-    clearInterval(interval);
-  }, 2000);
+
   return (
     <section className={classes.about}>
       <div className={classes.working}>
@@ -70,116 +52,7 @@ export default function About() {
           </div>
         </div>
       </div>
-      <div className={classes.achievements}>
-        <p>Achievements we take pride in</p>
-        <div className={classes.cards}>
-          {/* {cards.map((card) => (
-            <div key={card.id}>
-              <span className={classes.head}>
-                <span>{card.num}</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="23"
-                  height="24"
-                  viewBox="0 0 23 24"
-                  fill="none"
-                >
-                  <line
-                    x1="11.5"
-                    y1="0.5"
-                    x2="11.5"
-                    y2="23.5"
-                    stroke="white"
-                    strokeWidth="3"
-                  />
-                  <line
-                    y1="12"
-                    x2="23"
-                    y2="12"
-                    stroke="white"
-                    strokeWidth="3"
-                  />
-                </svg>
-              </span>
-              <p className={classes.title}>{card.title}</p>
-            </div>
-          ))} */}
-          <div className={active == 1 ? classes.animate : ""}>
-            <span className={classes.head}>
-              <span>48</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="23"
-                height="24"
-                viewBox="0 0 23 24"
-                fill="none"
-              >
-                <line
-                  x1="11.5"
-                  y1="0.5"
-                  x2="11.5"
-                  y2="23.5"
-                  stroke="white"
-                  strokeWidth="3"
-                />
-                <line y1="12" x2="23" y2="12" stroke="white" strokeWidth="3" />
-              </svg>
-            </span>
-            <p className={classes.title}>Projects</p>
-          </div>
-          <div className={active == 2 ? classes.animate : ""}>
-            <span className={classes.head}>
-              <span>48</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="23"
-                height="24"
-                viewBox="0 0 23 24"
-                fill="none"
-              >
-                <line
-                  x1="11.5"
-                  y1="0.5"
-                  x2="11.5"
-                  y2="23.5"
-                  stroke="white"
-                  strokeWidth="3"
-                />
-                <line y1="12" x2="23" y2="12" stroke="white" strokeWidth="3" />
-              </svg>
-            </span>
-            <p className={classes.title}>Projects</p>
-          </div>
-          <div className={active == 3 ? classes.animate : ""}>
-            <span className={classes.head}>
-              <span>48</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="23"
-                height="24"
-                viewBox="0 0 23 24"
-                fill="none"
-              >
-                <line
-                  x1="11.5"
-                  y1="0.5"
-                  x2="11.5"
-                  y2="23.5"
-                  stroke="white"
-                  strokeWidth="3"
-                />
-                <line y1="12" x2="23" y2="12" stroke="white" strokeWidth="3" />
-              </svg>
-            </span>
-            <p className={classes.title}>Projects</p>
-          </div>
-          {/* <div></div>
-          <div></div> */}
-        </div>
-        <div>
-          <HomeBtn text="About us" href="/" padding={false} />
-        </div>
-      </div>
+      <Achievements linkTXT={"About us"} linkURL={"/about"} />
     </section>
   );
 }

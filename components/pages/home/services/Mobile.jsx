@@ -11,7 +11,7 @@ import HomeBtn from "@/components/homeBtn/HomeBtn";
 import "swiper/css";
 import classes from "./Mobile.module.scss";
 
-export default function Mobile() {
+export default function Mobile({ link }) {
   return (
     <div className={classes.mobile}>
       <svg
@@ -31,7 +31,7 @@ export default function Mobile() {
       <p className={classes.title}>Our services</p>
       <p className={classes.desc}>Get started with a Free Consultation</p>
 
-      <div className="w-[100%] my-2 mt-6">
+      <div className="w-[100%]  mt-4">
         <Swiper
           spaceBetween={50}
           slidesPerView={1}
@@ -40,8 +40,6 @@ export default function Mobile() {
             nextEl: ".next1",
             prevEl: ".prev1",
           }}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
           loop={true}
         >
           <SwiperSlide>
@@ -55,7 +53,7 @@ export default function Mobile() {
           </SwiperSlide>
         </Swiper>
       </div>
-      <div className="flex justify-center items-end gap-4 my-4">
+      <div className="flex justify-center items-end gap-4 my-4 ">
         <span className="hover:scale-110 transition-all duration-300 prev1">
           {" "}
           <img src="./leftar.svg" alt="left" />
@@ -65,7 +63,7 @@ export default function Mobile() {
           <img src="./rightar.svg" alt="right" />
         </span>
       </div>
-      <HomeBtn text="Book consultation" href="/" padding={false} />
+      {link && <HomeBtn text="Book consultation" href="/" padding={false} />}
     </div>
   );
 }

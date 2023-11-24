@@ -26,4 +26,10 @@ body {
     )
     rgb(var(--background-start-rgb)); */
   /* overflow-x: hidden; */
+  color: #1c1f27;
+}
+
+.projects-tabs::-webkit-scrollbar {
+  width: 0;
+  height: 100%;
 }

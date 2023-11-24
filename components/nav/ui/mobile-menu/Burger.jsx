@@ -1,39 +1,23 @@
-export default function Burger() {
+export default function Burger({ clicked, setClicked }) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="32"
-      height="24"
-      viewBox="0 0 32 24"
-      fill="none"
+    <div
+      className="flex flex-col justify-evenly items-end w-[32] h-[24px] cursor-pointer"
+      onClick={setClicked}
     >
-      <rect
-        x="32"
-        y="10"
-        width="32"
-        height="4"
-        rx="2"
-        transform="rotate(-180 32 10)"
-        fill="#1C1F27"
-      />
-      <rect
-        x="32"
-        y="18"
-        width="16"
-        height="4"
-        rx="2"
-        transform="rotate(-180 32 18)"
-        fill="#1C1F27"
-      />
-      <rect
-        x="32"
-        y="18"
-        width="16"
-        height="4"
-        rx="2"
-        transform="rotate(-180 32 18)"
-        fill="#1C1F27"
-      />
-    </svg>
+      <span
+        className={`w-[32px] h-[4px] rounded bg-[#1C1F27] transition-all duration-300 ease-in-out ${
+          clicked && "-rotate-[45deg] translate-y-1"
+        } `}
+      ></span>
+      <span
+        className={`h-[4px]  rounded bg-[#1C1F27] transition-all duration-300 ease-in-out ${
+          clicked && "rotate-[45deg] -translate-y-1"
+        } `}
+        style={{
+          width: clicked ? "32px" : "16px",
+        }}
+      ></span>
+      <span></span>
+    </div>
   );
 }
