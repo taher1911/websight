@@ -1,18 +1,29 @@
 import HomeBtn from "@/components/homeBtn/HomeBtn";
 import Languages from "@/components/shared/languages/Languages";
 import Socials from "@/components/shared/socials/Socials";
+import Burger from "./Burger";
 import Link from "next/link";
 
 export default function Menu({ clicked, setClicked }) {
   return (
     <div
-      className={`fixed bottom-[0vh]  w-[100vw] h-[90vh] z-10 transition-all duration-300 ease-in-out ${
+      className={`fixed bottom-[0vh]  w-[100vw] h-[100vh] z-10 transition-all duration-300 ease-in-out ${
         clicked ? "left-0" : "left-[-100%]"
       } `}
       style={{ background: "rgba(255, 255, 255, 0.64)" }}
     >
+      {/* nav section  */}
+      <div className="flex justify-between items-center my-[33px] mx-[30px]">
+        <a href="/">
+          <img src="./logo.png" alt="logo" className="w-[81px]" />
+        </a>
+        <div>
+          <Burger clicked={clicked} setClicked={setClicked} />
+        </div>
+      </div>
+
       <div
-        className="w-[272px] h-[600px] max-h-[99%] bg-[#B889D8] px-[30px] py-[42px] rounded-tr-[30px] rounded-br-[30px] flex flex-col justify-between"
+        className="w-[272px] h-[600px] max-h-[80vh] bg-[#B889D8] px-[30px] py-[42px] rounded-tr-[30px] rounded-br-[30px] flex flex-col justify-between"
         style={{
           "border-top": "1px solid #1C1F27",
           "border-right": "1px solid #1C1F27",
