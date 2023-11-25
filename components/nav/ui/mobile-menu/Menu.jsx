@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Menu({ clicked, setClicked }) {
   return (
     <div
-      className={`fixed bottom-[5vh]  w-[100vw] h-[90vh] z-10 transition-all duration-300 ease-in-out ${
+      className={`fixed bottom-[0vh]  w-[100vw] h-[90vh] z-10 transition-all duration-300 ease-in-out ${
         clicked ? "left-0" : "left-[-100%]"
       } `}
       style={{ background: "rgba(255, 255, 255, 0.64)" }}
