@@ -14,7 +14,11 @@ export default function Nav() {
     <>
       <nav className="flex justify-between items-center my-[33px] mx-[30px]">
         <a href="/">
-          <img src="./logo.png" alt="logo" className="w-[81px]" />
+          <img
+            src="https://res.cloudinary.com/freelancer3223/image/upload/v1700989958/websight/logo_ipvzsx.png"
+            alt="logo"
+            className="w-[81px]"
+          />
         </a>
         <div>
           <Burger clicked={clicked} setClicked={setClickedHandler} />

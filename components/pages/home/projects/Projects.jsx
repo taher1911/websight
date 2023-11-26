@@ -8,31 +8,37 @@ import "swiper/css";
 import classes from "./Projects.module.scss";
 import StarSVG from "@/components/shared/icons/Star";
 import ProjectNameSVG from "@/components/shared/icons/ProjectNameSvg";
+import HomeBtn from "@/components/homeBtn/HomeBtn";
+import Link from "next/link";
 export default function Projects() {
   const projects = [
     {
       id: 1,
       name: "Cycle",
       label: "#UX/UI design",
-      href: "/",
+      href: "/projects/1",
+      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1700996086/websight/p1_czch7j.png",
     },
     {
       id: 2,
       name: "Chameleon",
       label: "#UX/UI design",
-      href: "/",
+      href: "/projects/2",
+      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1700996091/websight/p2_srwdee.png",
     },
     {
       id: 3,
       name: "Studio 4T",
       label: "#UX/UI design",
-      href: "/",
+      href: "/projects/3",
+      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1700996089/websight/p4_hig35b.png",
     },
     {
       id: 4,
       name: "Yogi",
       label: "#UX/UI design",
-      href: "/",
+      href: "/projects/4",
+      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1700996088/websight/p3_y2rp5p.png",
     },
   ];
   return (
@@ -52,16 +58,20 @@ export default function Projects() {
           loop={true}
         >
           {projects.map((p) => (
-            <SwiperSlide key={p.id}>
-              <div className={classes.sliderElement}>
+            <SwiperSlide key={p}>
+              <div
+                key={p.id}
+                className={`${classes.sliderElement}`}
+                style={{ boxShadow: "none" }}
+              >
                 <div
-                  className={`flex justify-between items-center ${classes.container}`}
+                  className={`flex justify-between items-center ${classes.container} z-2`}
                 >
                   <div className={`flex items-center gap-2 ${classes.head}`}>
                     <ProjectNameSVG />
                     <span className="text-[16px] font-[600]">{p.name}</span>
                   </div>
-                  <a href={p.href} className={classes.link}>
+                  <Link href={p.href} className={classes.link}>
                     <span className={classes.arrow}>
                       <Image
                         src="/Mask group.svg"
@@ -80,11 +90,12 @@ export default function Projects() {
                         priority
                       />
                     </span>
-                  </a>
+                  </Link>
                 </div>
                 <span className={`text-[16px]  ${classes.label}`}>
                   {p.label}
                 </span>
+                <img src={p.img} alt={p.label} className="mt-8" />
               </div>
             </SwiperSlide>
           ))}
@@ -99,6 +110,9 @@ export default function Projects() {
             <img src="./rightar.svg" alt="right" />
           </span>
         </div>
+      </div>
+      <div className="flex flex-col justify-center items-center">
+        <HomeBtn text={"View all"} href="/projects" padding={true} />
       </div>
     </section>
   );

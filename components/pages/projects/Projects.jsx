@@ -4,34 +4,35 @@ import MainSVG from "@/components/shared/icons/MainSvg";
 import ProjectNameSVG from "@/components/shared/icons/ProjectNameSvg";
 
 import classes from "./Style.module.scss";
+import Link from "next/link";
 export default function ProjectsComp() {
   const projects = [
     {
       id: 1,
       name: "Cycle",
       label: "#UX/UI design",
-      href: "/",
+      href: "/projects/1",
       img: "p1.png",
     },
     {
       id: 2,
       name: "Chameleon",
       label: "#UX/UI design",
-      href: "/",
+      href: "/projects/2",
       img: "p2.png",
     },
     {
       id: 3,
       name: "Studio 4T",
       label: "#UX/UI design",
-      href: "/",
+      href: "/projects/3",
       img: "p4.png",
     },
     {
       id: 4,
       name: "Yogi",
       label: "#UX/UI design",
-      href: "/",
+      href: "/projects/4",
       img: "p3.png",
     },
   ];
@@ -79,7 +80,7 @@ export default function ProjectsComp() {
                   <ProjectNameSVG />
                   <span className="text-[16px] font-[600]">{p.name}</span>
                 </div>
-                <a href={p.href} className={classes.link}>
+                <Link href={p.href} className={classes.link}>
                   <span className={classes.arrow}>
                     <Image
                       src="/Mask group.svg"
@@ -98,7 +99,7 @@ export default function ProjectsComp() {
                       priority
                     />
                   </span>
-                </a>
+                </Link>
               </div>
               <span className={`text-[16px]  ${classes.label}`}>{p.label}</span>
               <img src={p.img} alt={p.label} className="mt-4" />

@@ -1,6 +1,7 @@
 import classes from "./Footer.module.scss";
 import Socials from "../shared/socials/Socials";
 import Languages from "../shared/languages/Languages";
+import Link from "next/link";
 export default function Footer() {
   return (
     <footer
@@ -12,13 +13,16 @@ export default function Footer() {
         </a>
         <ul className={classes.links}>
           <li>
-            <a href="/">About</a>
+            <Link href="/">Home</Link>
           </li>
           <li>
-            <a href="/">Projects</a>
+            <Link href="/about">About</Link>
           </li>
           <li>
-            <a href="/">Contact</a>
+            <Link href="/projects">Projects</Link>
+          </li>
+          <li>
+            <Link href="/contact">Contact</Link>
           </li>
         </ul>
 

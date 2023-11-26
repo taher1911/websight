@@ -2,23 +2,23 @@ import classes from "./About.module.scss";
 import Achievements from "@/components/shared/achievements/Achievements";
 export default function About() {
   const images = [
-    "w1",
-    "w2",
-    "w3",
-    "w4",
-    "w5",
-    "w6",
-    "w7",
-    "w8",
-    "w9",
-    "w10",
-    "w11",
-    "w12",
-    "w13",
-    "w14",
-    "w15",
-    "w16",
-    "w17",
+    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003990/websight/w1_ohqqjj.png",
+    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003988/websight/w2_ormpqc.png",
+    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003988/websight/w3_k7c3ha.png",
+    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003989/websight/w4_yrnx2u.png",
+    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003988/websight/w5_lufcbh.png",
+    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003989/websight/w6_it3e60.png",
+    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003990/websight/w7_brd3ik.png",
+    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003990/websight/w8_whziew.png",
+    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003994/websight/w9_qauzl2.png",
+    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003995/websight/w10_n6qffr.png",
+    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003995/websight/w11_ro26au.png",
+    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003996/websight/w12_tmsyne.png",
+    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003997/websight/w13_t67r9g.png",
+    "https://res.cloudinary.com/freelancer3223/image/upload/v1701004001/websight/w14_lwymsl.png",
+    "https://res.cloudinary.com/freelancer3223/image/upload/v1701004002/websight/w15_cnxbfj.png",
+    "https://res.cloudinary.com/freelancer3223/image/upload/v1701004002/websight/w16_xmle3g.png",
+    "https://res.cloudinary.com/freelancer3223/image/upload/v1701004005/websight/w17_cz5hdq.png",
   ];
 
   return (
@@ -47,7 +47,7 @@ export default function About() {
         <div className={classes.images}>
           <div className={classes.container}>
             {images.map((img) => (
-              <img src={`${img}.png`} alt={`brand`} key={img} />
+              <img src={`${img}`} alt={`brand`} key={img} />
             ))}
           </div>
         </div>
