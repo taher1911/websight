@@ -10,6 +10,8 @@ import MainSVG from "@/components/shared/icons/MainSvg";
 import HomeBtn from "@/components/homeBtn/HomeBtn";
 import StarSVG from "@/components/shared/icons/Star";
 
+// import ImageComponent from "@/components/shared/image/Image";
+
 import classes from "../Style.module.scss";
 import ProjectNameSVG from "@/components/shared/icons/ProjectNameSvg";
 export default function ProjectComponent({ project, projects }) {
@@ -56,7 +58,14 @@ export default function ProjectComponent({ project, projects }) {
               {project.images.map((p) => (
                 <SwiperSlide key={p}>
                   <div className="w-full ">
-                    <img src={p} alt="project-image" className="w-full " />
+                    {/* <ImageComponent src={p} className="w-full" /> */}
+                    <Image
+                      src={p}
+                      alt="project-image"
+                      className="w-full "
+                      width={1000}
+                      height={200}
+                    />
                   </div>
                 </SwiperSlide>
               ))}
@@ -161,7 +170,13 @@ export default function ProjectComponent({ project, projects }) {
                   <span className={`text-[16px]  ${classes.label}`}>
                     {p.label}
                   </span>
-                  <img src={p.img} alt={p.label} className="mt-4" />
+                  <Image
+                    src={p.img}
+                    alt={p.label}
+                    className="mt-4"
+                    width={1000}
+                    height={200}
+                  />
                 </div>
               </SwiperSlide>
             ))}

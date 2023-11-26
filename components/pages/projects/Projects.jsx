@@ -12,28 +12,28 @@ export default function ProjectsComp() {
       name: "Cycle",
       label: "#UX/UI design",
       href: "/projects/1",
-      img: "p1.png",
+      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701002607/websight/Rectangle_18211_8_f2vwao.png",
     },
     {
       id: 2,
       name: "Chameleon",
       label: "#UX/UI design",
       href: "/projects/2",
-      img: "p2.png",
+      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1700990811/websight/Rectangle_18211_2_rwr1ac.png",
     },
     {
       id: 3,
       name: "Studio 4T",
       label: "#UX/UI design",
       href: "/projects/3",
-      img: "p4.png",
+      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701002170/websight/Rectangle_18211_6_piielz.png",
     },
     {
       id: 4,
       name: "Yogi",
       label: "#UX/UI design",
       href: "/projects/4",
-      img: "p3.png",
+      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701001422/websight/Rectangle_18211_4_unyf9p.png",
     },
   ];
   return (

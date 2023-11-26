@@ -72,28 +72,28 @@ const projects = [
     name: "Cycle",
     label: "#UX/UI design",
     href: "/projects/1",
-    img: "https://res.cloudinary.com/freelancer3223/image/upload/v1700996086/websight/p1_czch7j.png",
+    img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701002607/websight/Rectangle_18211_8_f2vwao.png",
   },
   {
     id: 2,
     name: "Chameleon",
     label: "#UX/UI design",
     href: "/projects/2",
-    img: "https://res.cloudinary.com/freelancer3223/image/upload/v1700996091/websight/p2_srwdee.png",
+    img: "https://res.cloudinary.com/freelancer3223/image/upload/v1700990811/websight/Rectangle_18211_2_rwr1ac.png",
   },
   {
     id: 3,
     name: "Studio 4T",
     label: "#UX/UI design",
     href: "/projects/3",
-    img: "https://res.cloudinary.com/freelancer3223/image/upload/v1700996089/websight/p4_hig35b.png",
+    img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701002170/websight/Rectangle_18211_6_piielz.png",
   },
   {
     id: 4,
     name: "Yogi",
     label: "#UX/UI design",
     href: "/projects/4",
-    img: "https://res.cloudinary.com/freelancer3223/image/upload/v1700996088/websight/p3_y2rp5p.png",
+    img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701001422/websight/Rectangle_18211_4_unyf9p.png",
   },
 ];
 export default function Project({ params, searchParams }) {
