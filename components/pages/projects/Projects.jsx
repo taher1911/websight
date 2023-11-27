@@ -47,7 +47,7 @@ export default function ProjectsComp() {
 
       <div className="min-w-[100%]  rounded-[7px] lg:border-[1px] border-solid border-[#1C1F27] lg:shadow-[2px_2px_0px_0px_#1C1F27] lg:p-[43px] lg:mt-[3rem]">
         <ul
-          className=" flex flex-row gap-3  mt-[28px] overflow-x-auto projects-tabs"
+          className=" hidden lg:flex flex-row gap-3  mt-[28px] overflow-x-auto projects-tabs"
           style={{ fontFamily: '"Roboto", sans-serif' }}
         >
           <li className="p-[10px] rounded-[30px] bg-[#B889D8]  text-white ">
