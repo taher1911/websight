@@ -29,7 +29,7 @@ export default function Nav() {
           />
         </a>
         <ul
-          className="hidden lg:flex gap-[45px] h-[70px] justify-center items-center rounded-[78px] border-[1px] border-solid border-[#1c1f27] px-[25px]"
+          className="hidden lg:flex gap-[35px] h-[70px] justify-center items-center rounded-[78px] border-[1px] border-solid border-[#1c1f27] px-[25px]"
           style={{
             fontFamily: '"Roboto",sans-serif',
           }}
