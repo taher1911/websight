@@ -16,7 +16,7 @@ export default function Achievements({ linkTXT, linkURL }) {
   }, 2000);
   return (
     <div className={classes.achievements}>
-      <p>Achievements we take pride in</p>
+      <p className={classes.headTitle}>Achievements we take pride in</p>
       <div className={classes.cards}>
         <div className={active == 1 ? classes.animate : ""}>
           <span className={classes.head}>

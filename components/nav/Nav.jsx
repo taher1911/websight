@@ -21,7 +21,7 @@ export default function Nav() {
       <nav className="flex justify-between items-center my-[33px] mx-[30px] lg:mx-auto lg:w-[90%] max-w-[1250px] ">
         <a href="/">
           <Image
-            src="https://res.cloudinary.com/freelancer3223/image/upload/v1701032156/websight/WebSight_Logo_copy_1_c0dsoy.png"
+            src="https://res.cloudinary.com/freelancer3223/image/upload/v1701129168/websight/WebSight_Logo_copy_1_jiezns.svg"
             alt="logo"
             width={177}
             height={41}

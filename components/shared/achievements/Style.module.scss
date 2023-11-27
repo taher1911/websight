@@ -17,12 +17,17 @@
     gap: 0px;
   }
   p {
-    width: 198px;
+    width: 222px;
     color: #1c1f27;
     text-align: center;
     font-size: 24px;
     font-weight: 600;
     line-height: 130%;
+    &.headTitle {
+      @media screen and (min-width: 1024px) {
+        text-align: left;
+      }
+    }
   }
   .cards {
     display: flex;

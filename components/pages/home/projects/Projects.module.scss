@@ -36,10 +36,13 @@
     border-radius: 30px;
     // background: url("../../../../public/Rectangle\ 45.png"),
     //   lightgray 50% / cover no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     border: 1px solid #1c1f27;
     padding: 20px 15px;
     &.pc_projcet {
-      width: auto;
+      width: 100%;
     }
     .container {
       .head {
@@ -92,7 +95,7 @@
       border: 1px solid #b889d8;
       background: #fff;
       font-family: "Roboto", sans-serif;
-      margin-top: 6px;
+      margin-top: 8px;
     }
   }
 }

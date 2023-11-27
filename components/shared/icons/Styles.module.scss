@@ -50,24 +50,17 @@
       &:nth-of-type(1) {
         animation: cycleArmT 5s ease-in-out infinite;
       }
-      &:nth-of-type(2) {
-        // animation: cycleArmL 5s ease-in-out infinite;
-      }
+
       &:nth-of-type(3) {
         animation: cycleArmL 5s ease-in-out infinite;
       }
-      &:nth-of-type(4) {
-      }
+
       &:nth-of-type(5) {
         animation: cycleArmB 5s ease-in-out infinite;
       }
-      &:nth-of-type(6) {
-        // animation: cycleArmL 5s ease-in-out infinite;
-      }
+
       &:nth-of-type(7) {
         animation: cycleArmR 5s ease-in-out infinite;
-      }
-      &:nth-of-type(8) {
       }
     }
   }
@@ -284,6 +277,38 @@
   }
   80% {
     transform: translateX(3px);
+    fill: #b889d883;
+  }
+  100% {
+    transform: translateX(0);
+    fill: rgba(0, 0, 0);
+  }
+}
+
+@keyframes cycleArmOthers {
+  0% {
+    transform: translateX(0);
+    transform: translateY(0);
+    fill: rgba(0, 0, 0);
+  }
+  20% {
+    transform: translateX(3px);
+    transform: translateY(3px);
+    fill: rgba(0, 0, 0, 0.481);
+  }
+  40% {
+    transform: translateX(0);
+    transform: translateY(0);
+    fill: #b889d8;
+  }
+  60% {
+    transform: translateX(0);
+    transform: translateY(0);
+    fill: #b889d8;
+  }
+  80% {
+    transform: translateX(3px);
+    transform: translateY(3px);
     fill: #b889d883;
   }
   100% {

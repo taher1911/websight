@@ -23,28 +23,28 @@ export default function ProjectsComp() {
       name: "Cycle",
       label: "#UX/UI design",
       href: "/projects/1",
-      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701002607/websight/Rectangle_18211_8_f2vwao.png",
+      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701114247/websight/Rectangle_45_aflhpz.png",
     },
     {
       id: 2,
       name: "Chameleon",
       label: "#UX/UI design",
       href: "/projects/2",
-      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1700990811/websight/Rectangle_18211_2_rwr1ac.png",
+      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701114245/websight/Property_1_Default_c01jyx.png",
     },
     {
       id: 3,
       name: "Studio 4T",
       label: "#UX/UI design",
       href: "/projects/3",
-      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701002170/websight/Rectangle_18211_6_piielz.png",
+      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701114236/websight/Rectangle_45_1_rg5j4g.png",
     },
     {
       id: 4,
       name: "Yogi",
       label: "#UX/UI design",
       href: "/projects/4",
-      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701001422/websight/Rectangle_18211_4_unyf9p.png",
+      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701114236/websight/Rectangle_45_1_rg5j4g.png",
     },
   ];
   return (
@@ -145,9 +145,17 @@ export default function ProjectsComp() {
         </ul>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10 mb-[6rem]">
           {projects.map((p) => (
-            <div key={p.id} className={classes.sliderElement}>
+            <div
+              key={p.id}
+              className={`${classes.sliderElement} w-[545px] h-[545px]  bg-[image:var(--image-url)] relative px-6 pt-4 `}
+              style={{ boxShadow: "none", "--image-url": `url(${p.img})` }}
+            >
+              <Link
+                href={p.href}
+                className="absolute w-full h-full left-0 top-0 rounded-[30px]"
+              ></Link>
               <div
-                className={`flex justify-between items-center ${classes.container} z-2`}
+                className={`flex justify-between items-center ${classes.container} z-2 `}
               >
                 <div className={`flex items-center gap-2 ${classes.head}`}>
                   <ProjectNameSVG />
@@ -175,13 +183,13 @@ export default function ProjectsComp() {
                 </Link>
               </div>
               <span className={`text-[16px]  ${classes.label}`}>{p.label}</span>
-              <Image
+              {/* <Image
                 src={p.img}
                 alt={p.label}
                 className="w-full "
                 width={1135}
                 height={629}
-              />
+              /> */}
               {/* <img src={p.img} alt={p.label} className="mt-4" /> */}
             </div>
           ))}
