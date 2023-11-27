@@ -175,7 +175,14 @@ export default function ProjectsComp() {
                 </Link>
               </div>
               <span className={`text-[16px]  ${classes.label}`}>{p.label}</span>
-              <img src={p.img} alt={p.label} className="mt-4" />
+              <Image
+                src={p.img}
+                alt={p.label}
+                className="w-full "
+                width={1135}
+                height={629}
+              />
+              {/* <img src={p.img} alt={p.label} className="mt-4" /> */}
             </div>
           ))}
         </div>
