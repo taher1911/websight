@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 
 import MainSVG from "@/components/shared/icons/MainSvg";
@@ -5,7 +6,17 @@ import ProjectNameSVG from "@/components/shared/icons/ProjectNameSvg";
 
 import classes from "./Style.module.scss";
 import Link from "next/link";
+import { useState } from "react";
 export default function ProjectsComp() {
+  const [filterd, setFilterd] = useState({
+    featured: false,
+    online: false,
+    tailored: false,
+    philanthropic: false,
+    interactive: false,
+    reservation: false,
+    uiux: false,
+  });
   const projects = [
     {
       id: 1,
@@ -45,29 +56,91 @@ export default function ProjectsComp() {
         </h2>
       </div>
 
-      <div className="min-w-[100%]  rounded-[7px] lg:border-[1px] border-solid border-[#1C1F27] lg:shadow-[2px_2px_0px_0px_#1C1F27] lg:p-[43px] lg:mt-[3rem]">
+      <div className="min-w-[100%]  rounded-[30px] lg:border-[1px] border-solid border-[#1C1F27] lg:shadow-[2px_2px_0px_0px_#1C1F27] lg:p-[43px] lg:pt-[0] lg:mt-[3rem]">
         <ul
-          className=" hidden lg:flex flex-row gap-3  mt-[28px] overflow-x-auto projects-tabs"
+          className="hidden lg:flex flex-row flex-wrap gap-[20px]  mt-[28px] overflow-x-auto projects-tabs lg:mb-[100px]"
           style={{ fontFamily: '"Roboto", sans-serif' }}
         >
-          <li className="p-[10px] rounded-[30px] bg-[#B889D8]  text-white ">
+          <li
+            className={`p-[10px] rounded-[30px]  cursor-pointer transition-all duration-300 ease-in-out`}
+            style={{
+              color: filterd.featured ? "#fff" : "#fff",
+              background: filterd.featured ? "black" : "#B889D8",
+            }}
+            onClick={() =>
+              setFilterd({ ...filterd, featured: !filterd.featured })
+            }
+          >
             Featured
           </li>
-          <li className="p-[10px] rounded-[30px] bg-[#B889D8]  text-white w-[250px]">
+          <li
+            className={`p-[10px] rounded-[30px] border-[1px] border-solid border-[#1C1F27]  cursor-pointer  transition-all duration-300 ease-in-out`}
+            style={{
+              color: filterd.online ? "#fff" : "#1C1F27",
+              background: filterd.online ? "black" : "#E6F3F9",
+            }}
+            onClick={() => setFilterd({ ...filterd, online: !filterd.online })}
+          >
             Online Retail Solutions
           </li>
-          <li className="p-[10px] rounded-[30px] bg-[#B889D8] text-white ">
-            Featured
+          <li
+            className="p-[10px] rounded-[30px] border-[1px] border-solid border-[#1C1F27] cursor-pointer transition-all duration-300 ease-in-out"
+            style={{
+              color: filterd.tailored ? "#fff" : "#1C1F27",
+              background: filterd.tailored ? "black" : "#E0C6E4",
+            }}
+            onClick={() =>
+              setFilterd({ ...filterd, tailored: !filterd.tailored })
+            }
+          >
+            Tailored Web Experiences
           </li>
-          <li className="p-[10px] rounded-[30px] bg-[#B889D8] text-white ">
-            Online Retail Solutions
+          <li
+            className="p-[10px] rounded-[30px] border-[1px] border-solid border-[#1C1F27] cursor-pointer transition-all duration-300 ease-in-out"
+            style={{
+              color: filterd.philanthropic ? "#fff" : "#1C1F27",
+              background: filterd.philanthropic ? "black" : "#fff",
+            }}
+            onClick={() =>
+              setFilterd({ ...filterd, philanthropic: !filterd.philanthropic })
+            }
+          >
+            Philanthropic Platforms
           </li>
-          <li className="p-[10px] rounded">Featured</li>
-          <li className="p-[10px] rounded-[30px] bg-[#B889D8] text-white ">
-            Online Retail Solutions
+
+          <li
+            className="p-[10px] rounded-[30px] border-[1px] border-solid border-[#1C1F27] cursor-pointer transition-all duration-300 ease-in-out"
+            style={{
+              color: filterd.interactive ? "#fff" : "#E0C6E4",
+              background: filterd.interactive ? "black" : "#1C1F27",
+            }}
+            onClick={() =>
+              setFilterd({ ...filterd, interactive: !filterd.interactive })
+            }
+          >
+            Interactive Menus
           </li>
-          <li className="p-[10px] rounded-[30px] bg-[#B889D8] text-white">
-            Featured
+          <li
+            className="p-[10px] rounded-[30px] border-[1px] border-solid border-[#1C1F27] cursor-pointer transition-all duration-300 ease-in-out "
+            style={{
+              color: filterd.reservation ? "#fff" : "#fff",
+              background: filterd.reservation ? "black" : "#B889D8",
+            }}
+            onClick={() =>
+              setFilterd({ ...filterd, reservation: !filterd.reservation })
+            }
+          >
+            Reservation & Scheduling Systems
+          </li>
+          <li
+            className="p-[10px] rounded-[30px] border-[1px] border-solid border-[#1C1F27] cursor-pointer transition-all duration-300 ease-in-out"
+            style={{
+              color: filterd.uiux ? "#fff" : "#B889D8",
+              background: filterd.uiux ? "black" : "#E6F3F9",
+            }}
+            onClick={() => setFilterd({ ...filterd, uiux: !filterd.uiux })}
+          >
+            UI/UX Design Studio
           </li>
         </ul>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10 mb-[6rem]">

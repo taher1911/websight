@@ -16,15 +16,26 @@ import classes from "../Style.module.scss";
 import ProjectNameSVG from "@/components/shared/icons/ProjectNameSvg";
 export default function ProjectComponent({ project, projects }) {
   return (
-    <section className="my-[3rem]">
-      <div>
-        <div className="flex flex-col justify-center items-center ">
-          <MainSVG />
-          <h2 className="text-[24px] font-[600] w-[232px] text-center leading-7 mt-3">
-            {project.title}
-          </h2>
+    <section className="my-[3rem] lg:mt-[4rem]">
+      <div className="lg:border-[1px] border-solid border-[#1C1F27] lg:shadow-[2px_2px_0px_0px_#1C1F27] lg:rounded-[30px] lg:bg-[#E6F3F9] lg:px-[30px] lg:py-[60px]">
+        <div className="flex flex-col justify-center items-center lg:justify-start  ">
+          <div className="flex flex-col justify-center items-center lg:justify-start lg:w-full lg:flex-row lg:gap-[40px]">
+            <MainSVG />
+            <div className="flex w-full justify-between items-center">
+              <h2 className="text-[24px] font-[600] w-[232px]   text-center lg:w-full lg:text-left leading-7 mt-3 lg:text-[64px]">
+                {project.title}
+              </h2>
+              <div className="hidden lg:block w-[265px]">
+                <HomeBtn
+                  text={"View website"}
+                  url={project.url}
+                  padding={false}
+                />
+              </div>
+            </div>
+          </div>
           <div
-            className="flex justify-start  gap-2 w-full mt-4"
+            className="flex justify-start  gap-2 w-full mt-4 lg:ml-[260px]"
             style={{ fontFamily: '"Roboto", sans-serif' }}
           >
             {project.tags.map((el, i) => (
@@ -57,14 +68,14 @@ export default function ProjectComponent({ project, projects }) {
             >
               {project.images.map((p) => (
                 <SwiperSlide key={p}>
-                  <div className="w-full ">
+                  <div className="w-full lg:max-w-[1134px] lg:mx-auto">
                     {/* <ImageComponent src={p} className="w-full" /> */}
                     <Image
                       src={p}
                       alt="project-image"
                       className="w-full "
-                      width={1000}
-                      height={200}
+                      width={1135}
+                      height={629}
                     />
                   </div>
                 </SwiperSlide>
@@ -88,8 +99,8 @@ export default function ProjectComponent({ project, projects }) {
               </SwiperSlide>
             </Swiper>
           </div>
-          <div className="flex justify-center items-end gap-4 my-4 mt-8">
-            <span className="hover:scale-110 transition-all duration-300 prev3">
+          <div className="flex justify-center items-end lg:w-full lg:justify-end lg:pr-[3rem] gap-4 my-4 mt-8">
+            <span className="hover:scale-110 transition-all duration-300 prev3 cursor-pointer">
               {" "}
               <img
                 src="https://res.cloudinary.com/freelancer3223/image/upload/v1700989890/websight/leftar_gkgins.svg"
@@ -97,32 +108,75 @@ export default function ProjectComponent({ project, projects }) {
               />
             </span>
 
-            <span className="hover:scale-110 transition-all duration-300 next3">
+            <span className="hover:scale-110 transition-all duration-300 next3 cursor-pointer">
               <img
                 src="https://res.cloudinary.com/freelancer3223/image/upload/v1700989922/websight/rightar_fzdg6t.svg"
                 alt="right"
               />
             </span>
           </div>
-          <div className="flex flex-col justify-center items-center my-10">
+          <div className="flex lg:hidden flex-col justify-center items-center my-10">
             <HomeBtn text={"View website"} url={project.url} padding={false} />
           </div>
         </div>
       </div>
 
       {/* other projects section  */}
-      <div className="mt-10">
-        <div className="flex flex-col justify-center items-center ">
+      <div className="mt-10 lg:rounded-[30px] lg:p-[30px] lg:border-[1px] border-solid border-[#1C1F27] lg:shadow-[2px_2px_0px_0px_#1C1F27] lg:my-[7rem]">
+        <div className="flex flex-col justify-center items-center lg:flex-row lg:justify-start lg:gap-2 ">
           <StarSVG />
-          <h2 className="text-[24px] font-[600] w-[232px] text-center leading-7 mt-3">
+          <h2 className="text-[24px] font-[600] w-[232px] text-center leading-7 mt-3 lg:mt-0 lg:text-[30px]">
             Other projects
           </h2>
         </div>
 
-        <div className="relative ">
+        {/* pc version  */}
+        <div className="hidden lg:grid lg:grid-cols-3 gap-6 mt-10 mb-[6rem] lg:mb-10">
+          {projects.map((p) => (
+            <div key={p.id} className={classes.sliderElement}>
+              <div
+                className={`flex justify-between items-center ${classes.container} z-2`}
+              >
+                <div className={`flex items-center gap-2 ${classes.head}`}>
+                  <ProjectNameSVG />
+                  <span className="text-[16px] font-[600]">{p.name}</span>
+                </div>
+                <Link href={p.href} className={classes.link}>
+                  <span className={classes.arrow}>
+                    <Image
+                      src="/Mask group.svg"
+                      alt="arrow"
+                      width={20}
+                      height={18}
+                      priority
+                    />
+                  </span>
+                  <span className={classes.hidden}>
+                    <Image
+                      src="/Mask white.svg"
+                      alt="arrow"
+                      width={20}
+                      height={18}
+                      priority
+                    />
+                  </span>
+                </Link>
+              </div>
+              <span className={`text-[16px]  ${classes.label}`}>{p.label}</span>
+              <img src={p.img} alt={p.label} className="mt-4" />
+            </div>
+          ))}
+        </div>
+        {/* mobile version  */}
+        <div className="relative lg:hidden">
           <Swiper
             spaceBetween={50}
             slidesPerView={1}
+            breakpoints={{
+              1024: {
+                slidesPerView: 3,
+              },
+            }}
             modules={[Pagination, Autoplay]}
             loop={true}
             lazy={true}
@@ -182,6 +236,7 @@ export default function ProjectComponent({ project, projects }) {
             ))}
           </Swiper>
         </div>
+        <div className="hidden lg:grid grid-cols-3"></div>
       </div>
     </section>
   );
