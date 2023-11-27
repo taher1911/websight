@@ -115,9 +115,9 @@ export default function Projects() {
           loop={true}
         >
           {projects.map((p) => (
-            <SwiperSlide key={p}>
+            <SwiperSlide key={p.id}>
               <div
-                key={p.id}
+                // key={p.id}
                 className={`${classes.sliderElement}`}
                 style={{ boxShadow: "none" }}
               >
@@ -130,22 +130,10 @@ export default function Projects() {
                   </div>
                   <Link href={p.href} className={classes.link}>
                     <span className={classes.arrow}>
-                      <Image
-                        src="/Mask group.svg"
-                        alt="arrow"
-                        width={20}
-                        height={18}
-                        priority
-                      />
+                      <img src="/Mask group.svg" alt="arrow" />
                     </span>
                     <span className={classes.hidden}>
-                      <Image
-                        src="/Mask white.svg"
-                        alt="arrow"
-                        width={20}
-                        height={18}
-                        priority
-                      />
+                      <img src="/Mask white.svg" alt="arrow" />
                     </span>
                   </Link>
                 </div>
@@ -166,12 +154,12 @@ export default function Projects() {
         </Swiper>
 
         <div className="flex justify-center items-end gap-4 my-4 mt-8 lg:hidden">
-          <span className="hover:scale-110 transition-all duration-300 prev2">
+          <span className="hover:scale-110 transition-all duration-300 prev2 cursor-pointer">
             {" "}
             <img src="./leftar.svg" alt="left" />
           </span>
 
-          <span className="hover:scale-110 transition-all duration-300 next2">
+          <span className="hover:scale-110 transition-all duration-300 next2 cursor-pointer">
             <img src="./rightar.svg" alt="right" />
           </span>
         </div>

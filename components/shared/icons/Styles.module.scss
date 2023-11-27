@@ -1,0 +1,63 @@
+.mainSvg {
+  position: relative;
+  animation: mainSvgAnimation 5s ease-in-out infinite;
+  width: 100px;
+  height: 100px;
+  @media screen and (max-width: 1024px) {
+    width: 50px;
+    height: 40px;
+  }
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &:nth-of-type(1) {
+      transform: translate(-50%, -50%) rotate(14deg);
+      animation: mainSvgel1 5s ease-in-out infinite;
+      opacity: 0.6;
+    }
+    &:nth-of-type(2) {
+      animation: mainSvgel2 5s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes mainSvgAnimation {
+  0% {
+    transform: rotate(0);
+  }
+
+  50% {
+    transform: rotate(160deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes mainSvgel1 {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes mainSvgel2 {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -8,6 +8,12 @@
   margin: 20px 30px;
   font-family: "Roboto", sans-serif;
   color: #fff;
+  @media screen and (min-width: 1024px) {
+    min-height: 170px;
+    width: 90%;
+    max-width: 1250px;
+    margin: 20px auto;
+  }
   .links {
     margin: 1.4rem auto;
     font-size: 18px;
@@ -17,6 +23,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media screen and (min-width: 1024px) {
+      margin: 0rem auto;
+    }
     li {
       margin: 5px 0;
     }
@@ -36,5 +45,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media screen and (min-width: 1024px) {
+      flex-direction: row-reverse;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 }

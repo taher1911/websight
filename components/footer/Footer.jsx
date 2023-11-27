@@ -5,11 +5,11 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer
-      className={`flex flex-col justify-between items-center my-[33px] mx-[30px] pt-[2rem] ${classes.footer}`}
+      className={`flex flex-col justify-between items-center my-[33px] mx-[30px] pt-[2rem] ${classes.footer} lg:p-[30px] lg:pr-[4rem] `}
     >
-      <div className="flex flex-col justify-between items-center">
+      <div className="flex flex-col justify-between items-center lg:w-full lg:flex-row lg:items-start lg:pt-[2rem]">
         <a href="/">
-          <img src="/footerLogo.svg" alt="logo" />
+          <img src="/footerLogo.svg" alt="logo" className="lg:w-[177px]" />
         </a>
         <ul className={classes.links}>
           <li>
@@ -31,7 +31,7 @@ export default function Footer() {
       </div>
       <div className={classes.copy}>
         <Languages />
-        <p className="text-[12px] font-[300] my-[15px]">
+        <p className="text-[12px] font-[300] my-[15px] lg:text-[16px]">
           Websight 2023 © All Rights Reserved.
         </p>
       </div>

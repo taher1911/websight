@@ -1,0 +1,41 @@
+export default function LeftArrow() {
+  return (
+    <svg
+      width="65"
+      height="23"
+      viewBox="0 0 65 23"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <mask
+        id="mask0_460_8438"
+        style="mask-type:alpha"
+        maskUnits="userSpaceOnUse"
+        x="0"
+        y="-1"
+        width="65"
+        height="25"
+      >
+        <path
+          d="M5.00976e-07 11.461C1.39785 11.461 2.7772 11.1409 4.03259 10.5252C5.28799 9.9095 6.38619 9.01448 7.24324 7.90857C8.1003 6.80265 8.69351 5.51513 8.97753 4.14442C9.26156 2.77372 9.22887 1.35612 8.88198 -3.88244e-07"
+          stroke="#1C1F27"
+          stroke-width="2"
+        />
+        <path
+          d="M5.00976e-07 11.4609C1.39785 11.4609 2.7772 11.781 4.03259 12.3967C5.28799 13.0124 6.38619 13.9074 7.24324 15.0133C8.1003 16.1192 8.69351 17.4067 8.97753 18.7775C9.26156 20.1482 9.22887 21.5658 8.88198 22.9219"
+          stroke="#1C1F27"
+          stroke-width="2"
+        />
+        <path d="M1.09082 11.4609H64.0908" stroke="#1C1F27" stroke-width="2" />
+      </mask>
+      <g mask="url(#mask0_460_8438)">
+        <rect
+          width="62"
+          height="23"
+          transform="matrix(-1 0 0 1 62.0908 0)"
+          fill="#1C1F27"
+        />
+      </g>
+    </svg>
+  );
+}
