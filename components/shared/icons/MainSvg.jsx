@@ -6,6 +6,7 @@ export default function MainSVG() {
       height="44"
       viewBox="0 0 45 44"
       fill="none"
+      className="lg:w-[100px] lg:h-[100px]"
     >
       <path
         fillRule="evenodd"

@@ -46,7 +46,64 @@ export default function Projects() {
       <div className={classes.title}>
         <StarSVG /> <span>Recent projects</span>
       </div>
-      <div className="w-[100%] my-2 mt-6">
+
+      {/* pc projects  */}
+      <div className="hidden lg:grid grid-cols-2 gap-8 my-10">
+        {projects.map((p) => (
+          <div
+            key={p.id}
+            className={`${classes.sliderElement} ${classes.pc_projcet} h-[500px]  flex flex-col justify-between`}
+            style={{ boxShadow: "none" }}
+          >
+            <div className="px-6 pt-4">
+              <div
+                className={`flex justify-between items-center ${classes.container} z-2`}
+              >
+                <div className={`flex items-center gap-2 ${classes.head}`}>
+                  <ProjectNameSVG />
+                  <span className="text-[16px] font-[600]">{p.name}</span>
+                </div>
+                <Link href={p.href} className={classes.link}>
+                  <span className={classes.arrow}>
+                    <Image
+                      src="/Mask group.svg"
+                      alt="arrow"
+                      width={20}
+                      height={18}
+                      priority
+                    />
+                  </span>
+                  <span className={classes.hidden}>
+                    <Image
+                      src="/Mask white.svg"
+                      alt="arrow"
+                      width={20}
+                      height={18}
+                      priority
+                    />
+                  </span>
+                </Link>
+              </div>
+              <span className={`text-[16px]  ${classes.label}`}>{p.label}</span>
+            </div>
+            <div>
+              {" "}
+              <Image
+                src={p.img}
+                alt={p.label}
+                className="mt-8"
+                width={1000}
+                height={200}
+              />
+            </div>
+
+            {/* <img src={p.img} alt={p.label} className="mt-8" /> */}
+          </div>
+        ))}
+      </div>
+
+      {/* mobile projects slider  */}
+      <div className="w-[100%] my-2 mt-6 lg:hidden">
         <Swiper
           spaceBetween={50}
           slidesPerView={1}
@@ -107,7 +164,8 @@ export default function Projects() {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="flex justify-center items-end gap-4 my-4 mt-8">
+
+        <div className="flex justify-center items-end gap-4 my-4 mt-8 lg:hidden">
           <span className="hover:scale-110 transition-all duration-300 prev2">
             {" "}
             <img src="./leftar.svg" alt="left" />
@@ -118,7 +176,7 @@ export default function Projects() {
           </span>
         </div>
       </div>
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center lg:items-start">
         <HomeBtn text={"View all"} href="/projects" padding={true} />
       </div>
     </section>

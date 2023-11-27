@@ -1,14 +1,15 @@
 import HomeBtn from "@/components/homeBtn/HomeBtn";
 import classes from "./Style.module.scss";
+import MainSVG from "@/components/shared/icons/MainSvg";
 
 export default function Landing() {
   return (
-    <section>
+    <section className={classes.landing}>
       <div className={classes.box1}>
-        <div>
+        <div className="lg:hidden">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="45"
+            width="45 "
             height="44"
             viewBox="0 0 45 44"
             fill="none"
@@ -25,14 +26,21 @@ export default function Landing() {
           Welcome to Websight - Where Imagination Meets Innovation
         </h2>
         <p className={classes.p}>Where creativity knows no bounds</p>
-        <HomeBtn text="Dive in" href="/" padding={true} />
+        <div className="lg:w-full lg:flex justify-end items-end">
+          <HomeBtn text="Dive in" href="/" padding={true} />
+        </div>
       </div>
       <div className={classes.box2}>
         <div className={classes.gif}></div>
-        <div className={classes.text}>
-          <span>Code.</span>
-          <span>Design.</span>
-          <span>Deploy.</span>
+        <div className="flex justify-between items-center w-[47.5%] lg:w-[100%]">
+          <div className="hidden lg:flex md:w-1/2  justify-center">
+            <MainSVG />
+          </div>
+          <div className={classes.text}>
+            <span>Code.</span>
+            <span>Design.</span>
+            <span>Deploy.</span>
+          </div>
         </div>
       </div>
     </section>

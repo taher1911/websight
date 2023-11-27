@@ -37,16 +37,16 @@ export default function ProjectsComp() {
     },
   ];
   return (
-    <section className="my-[3rem]">
-      <div className="flex flex-col justify-center items-center ">
+    <section className="my-[3rem] lg:my-[10vh]">
+      <div className="flex flex-col justify-center lg:justify-start lg:items-start items-center ">
         <MainSVG />
-        <h2 className="text-[24px] font-[600] w-[232px] text-center leading-7 mt-3">
+        <h2 className="text-[24px] font-[600] w-[232px] lg:w-full lg:text-[3.6vw] text-center lg:text-left leading-7 mt-3 lg:mt-10">
           Our projects
         </h2>
       </div>
 
-      <div className="min-w-[100%]">
-        {/* <ul
+      <div className="min-w-[100%]  rounded-[7px] lg:border-[1px] border-solid border-[#1C1F27] lg:shadow-[2px_2px_0px_0px_#1C1F27] lg:p-[43px] lg:mt-[3rem]">
+        <ul
           className=" flex flex-row gap-3  mt-[28px] overflow-x-auto projects-tabs"
           style={{ fontFamily: '"Roboto", sans-serif' }}
         >
@@ -69,8 +69,8 @@ export default function ProjectsComp() {
           <li className="p-[10px] rounded-[30px] bg-[#B889D8] text-white">
             Featured
           </li>
-        </ul> */}
-        <div className="grid grid-cols-1 gap-6 mt-10 mb-[6rem]">
+        </ul>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10 mb-[6rem]">
           {projects.map((p) => (
             <div key={p.id} className={classes.sliderElement}>
               <div

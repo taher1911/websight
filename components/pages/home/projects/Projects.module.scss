@@ -8,6 +8,10 @@
   background: #fff;
   box-shadow: 2px 2px 0px 0px #1c1f27;
   padding: 30px 20px;
+  @media screen and (min-width: 1024px) {
+    padding: 50px 40px;
+    margin: 7rem 0;
+  }
   .title {
     display: flex;
     justify-content: center;
@@ -23,6 +27,9 @@
       font-weight: 600;
       line-height: 130%;
     }
+    @media screen and (min-width: 1024px) {
+      justify-content: flex-start;
+    }
   }
   .sliderElement {
     width: 288px;
@@ -33,7 +40,9 @@
     //   lightgray 50% / cover no-repeat;
     border: 1px solid #1c1f27;
     padding: 20px 15px;
-
+    &.pc_projcet {
+      width: auto;
+    }
     .container {
       .head {
         padding: 5px 20px 5px 10px;

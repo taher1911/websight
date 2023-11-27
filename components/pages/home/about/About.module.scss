@@ -3,7 +3,12 @@
   display: flex;
   flex-direction: column;
   gap: 1em;
-
+  @media screen and (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 1fr 1.7fr;
+    margin: 7rem 0;
+    gap: 2em;
+  }
   .working,
   .achievements {
     display: flex;
@@ -14,6 +19,9 @@
     border-radius: 30px;
     border: 1px solid #1c1f27;
     box-shadow: 2px 2px 0px 0px #1c1f27;
+    @media screen and (min-width: 1024px) {
+      align-items: flex-start !important;
+    }
   }
   .working {
     gap: 30px;
@@ -24,6 +32,9 @@
       justify-content: center;
       gap: 0.5em;
       width: 90%;
+      @media screen and (min-width: 1024px) {
+        justify-content: start;
+      }
       p {
         width: 194px;
         color: #1c1f27;
@@ -47,12 +58,19 @@
           animation-play-state: paused;
         }
       }
-
+      @media screen and (min-width: 1024px) {
+        width: 380px;
+        margin-top: 2em;
+      }
       .container {
         display: flex;
         gap: 30px;
         width: 100%;
         animation: animation 12s linear infinite alternate-reverse forwards;
+        @media screen and (min-width: 1024px) {
+          animation: animation2 12s linear infinite alternate-reverse forwards;
+        }
+
         img {
           max-height: 55px;
         }
@@ -87,6 +105,10 @@
         border: 1px solid #1c1f27;
         background: #b889d8;
         box-shadow: 2px 2px 0px 0px #1c1f27;
+        @media screen and (min-width: 1024px) {
+          width: 140px;
+        }
+
         &.animate {
           animation: animateCard 2s linear;
         }
@@ -126,6 +148,15 @@
 @keyframes animation {
   0% {
     margin-left: -590%;
+  }
+  100% {
+    margin-left: 0%;
+  }
+}
+
+@keyframes animation2 {
+  0% {
+    margin-left: -420%;
   }
   100% {
     margin-left: 0%;

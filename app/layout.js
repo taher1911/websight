@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={myFont.className}>
         <Nav />
-        <div className="mx-[30px]">
+        <div className="mx-[30px] md:w-[90%] md:max-w-[1250px] md:mx-auto">
           <Suspense fallback={<Loading />}>{children} </Suspense>
         </div>
         <Footer />

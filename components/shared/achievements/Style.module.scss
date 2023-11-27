@@ -10,7 +10,12 @@
   border-radius: 30px;
   border: 1px solid #1c1f27;
   box-shadow: 2px 2px 0px 0px #1c1f27;
-
+  @media screen and (min-width: 1024px) {
+    align-items: flex-start;
+    justify-content: space-between;
+    min-height: 275px;
+    gap: 0px;
+  }
   p {
     width: 198px;
     color: #1c1f27;
@@ -22,7 +27,11 @@
   .cards {
     display: flex;
     color: #fff;
-
+    @media screen and (min-width: 1024px) {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
     div {
       width: 100px;
       height: 100px;
@@ -34,8 +43,20 @@
       border: 1px solid #1c1f27;
       background: #b889d8;
       box-shadow: 2px 2px 0px 0px #1c1f27;
+      direction: ltr;
+      @media screen and (min-width: 1024px) {
+        width: 140px;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+          transform: scale(1.1);
+          z-index: 2;
+        }
+      }
       &.animate {
         animation: animateCard 2s linear;
+        @media screen and (min-width: 1024px) {
+          animation: none;
+        }
       }
 
       &:nth-of-type(2),

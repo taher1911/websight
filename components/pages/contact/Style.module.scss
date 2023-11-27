@@ -2,6 +2,12 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.7em;
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 63px;
+    justify-content: space-between;
+  }
   .card {
     display: flex;
     align-items: center;
@@ -11,7 +17,11 @@
     border: 1px solid #1c1f27;
     background: #e0c6e4;
     box-shadow: 2px 2px 0px 0px #1c1f27;
-
+    @media screen and (min-width: 1024px) {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 30px;
+    }
     .svg {
       display: flex;
       width: 44px;
@@ -31,6 +41,9 @@
         font-style: normal;
         font-weight: 600;
         line-height: 130%; /* 26px */
+        @media screen and (min-width: 1024px) {
+          font-size: 22px;
+        }
       }
       a,
       p,

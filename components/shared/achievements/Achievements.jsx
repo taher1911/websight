@@ -27,22 +27,22 @@ export default function Achievements({ linkTXT, linkURL }) {
         </div>
         <div className={active == 2 ? classes.animate : ""}>
           <span className={classes.head}>
-            <span>48</span>
+            <span>22</span>
             <PlusSVG />
           </span>
-          <p className={classes.title}>Projects</p>
+          <p className={classes.title}>Clients</p>
         </div>
         <div className={active == 3 ? classes.animate : ""}>
           <span className={classes.head}>
-            <span>48</span>
+            <span>32</span>
             <PlusSVG />
           </span>
-          <p className={classes.title}>Projects</p>
+          <p className={classes.title}>Websites</p>
         </div>
         {/* <div></div>
       <div></div> */}
       </div>
-      <div>
+      <div className="lg:-translate-y-3">
         <HomeBtn text={linkTXT} href={linkURL} padding={false} />
       </div>
     </div>

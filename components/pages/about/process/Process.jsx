@@ -33,10 +33,10 @@ export default function Process() {
     },
   ];
   return (
-    <section className="mt-[20px] mb-[60px] flex flex-col gap-[60px]">
+    <section className="mt-[20px] mb-[60px] flex flex-col gap-[60px] lg:gap-[30px] lg:flex-row-reverse lg:items-stretch lg:my-[5em]">
       <Achievements linkTXT={"Contact us"} linkURL={"/contact"} />
-      <div className="">
-        <div className="flex justify-center items-center gap-3">
+      <div className="lg:w-[40%]">
+        <div className="flex justify-center lg:justify-start items-center gap-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="36"
@@ -65,7 +65,7 @@ export default function Process() {
               fill="#1C1F27"
             />
           </svg>
-          <span className="text-[24px] font-[600] leading-[130%]">
+          <span className="text-[24px] font-[600] leading-[130%] lg:text-[36px]">
             Our process
           </span>
         </div>
@@ -83,13 +83,15 @@ export default function Process() {
             >
               {process.map((p) => (
                 <SwiperSlide key={p.id}>
-                  <div className="w-[100%]   text-center flex flex-col justify-center items-center gap-[20px]">
-                    <span className="w-[34px] h-[34px] rounded-full bg-[#1C1F27] text-[#fff] text-[20px] font-[600] flex justify-center items-center">
-                      {p.id}
-                    </span>
-                    <h3 className="text-[24px] font-[600] leading-[130%] w-[270px]">
-                      {p.title}
-                    </h3>
+                  <div className="w-[100%]   text-center flex flex-col  justify-center items-center lg:items-start lg:justify-start lg:text-left gap-[20px]">
+                    <div className="flex flex-col justify-center items-center lg:flex-row lg:items-start lg:justify-start gap-[20px] lg:gap-[10px]">
+                      <span className="w-[34px] lg:w-[44px] h-[34px] rounded-full bg-[#1C1F27] text-[#fff] text-[20px] font-[600] flex justify-center items-center">
+                        {p.id}
+                      </span>
+                      <h3 className="text-[24px] font-[600] leading-[130%] w-[270px] lg:w-[100%]">
+                        {p.title}
+                      </h3>
+                    </div>
                     <p
                       className="text-[18px] font-[400] leading-[130%]"
                       style={{
@@ -103,13 +105,13 @@ export default function Process() {
               ))}
             </Swiper>
           </div>
-          <div className="flex justify-center items-end gap-4 my-4 mt-8">
-            <span className="hover:scale-110 transition-all duration-300 prev3">
+          <div className="flex justify-center lg:justify-end items-end gap-4 my-4 mt-8">
+            <span className="hover:scale-110 transition-all duration-300 prev3 cursor-pointer">
               {" "}
               <img src="./leftar.svg" alt="left" />
             </span>
 
-            <span className="hover:scale-110 transition-all duration-300 next3">
+            <span className="hover:scale-110 transition-all duration-300 next3 cursor-pointer">
               <img src="./rightar.svg" alt="right" />
             </span>
           </div>

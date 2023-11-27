@@ -1,11 +1,12 @@
-import classes from "./Services.module.scss";
-
 import Mobile from "./Mobile";
+import ServicesPc from "./Pc";
 export default function Services({ link }) {
   return (
-    <section className={classes.services}>
+    <section>
       <div className="">
         <Mobile link={link} />
+
+        <ServicesPc />
       </div>
     </section>
   );

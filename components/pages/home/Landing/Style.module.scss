@@ -1,73 +1,126 @@
-.box1 {
-  display: flex;
-  width: 100%;
-  max-width: 100%;
-  height: 421px;
-  padding: 54px 30px 42px 30px;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  flex-shrink: 0;
-  border-radius: 30px;
-  border: 1px solid #1c1f27;
-  background: #e6f3f9;
-  box-shadow: 2px 2px 0px 0px #1c1f27;
-  .welcome {
-    color: #1c1f27;
-    text-align: center;
-    width: 282px;
-    // font-family: Kallisto;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 130%; /* 31.2px */
-  }
-  .p {
-    color: #1c1f27;
-    width: 206px;
-    text-align: center;
-    font-family: "Roboto", sans-serif;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 130%; /* 23.4px */
-  }
-}
-
-.box2 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1.4rem 0;
-  .gif,
-  .text {
-    width: 47.5%;
-    height: 236px;
-  }
-  .gif {
-    border-radius: 30px;
-    border: 1px solid #1c1f27;
-    background: url("https://res.cloudinary.com/freelancer3223/image/upload/v1701004549/websight/home-gif_igsrwd.gif"),
-      lightgray 50% / cover no-repeat;
-  }
-  .text {
+.landing {
+  @media screen and (min-width: 1024px) {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 4px;
+    gap: 2em;
+    margin-top: 8vh;
+  }
+  .box1 {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    height: 421px;
+    padding: 54px 30px 42px 30px;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
     flex-shrink: 0;
     border-radius: 30px;
     border: 1px solid #1c1f27;
-    background: #e0c6e4;
+    background: #e6f3f9;
     box-shadow: 2px 2px 0px 0px #1c1f27;
-    span {
+    @media screen and (min-width: 1024px) {
+      width: 66%;
+      max-width: 787px;
+      height: 460px;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 30px;
+    }
+    .welcome {
       color: #1c1f27;
+      text-align: center;
+      width: 282px;
       // font-family: Kallisto;
-      font-size: 22px;
+      font-size: 24px;
       font-style: normal;
-      font-weight: 600;
-      line-height: normal;
+      font-weight: 700;
+      line-height: 130%; /* 31.2px */
+      @media screen and (min-width: 1024px) {
+        text-align: left;
+        width: 100%;
+        font-size: 3.6vw;
+      }
+    }
+    .p {
+      color: #1c1f27;
+      width: 206px;
+      text-align: center;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 130%; /* 23.4px */
+      @media screen and (min-width: 1024px) {
+        text-align: left;
+        width: 305px;
+        font-size: 28px;
+      }
+    }
+  }
+
+  .box2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.4rem 0;
+    @media screen and (min-width: 1024px) {
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      height: 460px;
+      flex-grow: 1;
+    }
+    .gif,
+    .text {
+      width: 47.5%;
+      height: 236px;
+      @media screen and (min-width: 1024px) {
+        width: 100%;
+      }
+    }
+    .gif {
+      border-radius: 30px;
+      border: 1px solid #1c1f27;
+      background: url("https://res.cloudinary.com/freelancer3223/image/upload/v1701004549/websight/home-gif_igsrwd.gif"),
+        lightgray 50% / cover no-repeat;
+      @media screen and (min-width: 1024px) {
+        height: 245px !important;
+      }
+    }
+    .text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      gap: 4px;
+      flex-shrink: 0;
+      border-radius: 30px;
+      border: 1px solid #1c1f27;
+      background: #e0c6e4;
+      box-shadow: 2px 2px 0px 0px #1c1f27;
+      @media screen and (min-width: 1024px) {
+        width: 175px;
+        height: 175px;
+      }
+      span {
+        color: #1c1f27;
+        // font-family: Kallisto;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        @media screen and (min-width: 1024px) {
+          font-size: 28px;
+        }
+      }
+    }
+    svg {
+      @media screen and (min-width: 1024px) {
+        width: 100px;
+        height: 100px;
+      }
     }
   }
 }
