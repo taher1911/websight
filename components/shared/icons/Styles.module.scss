@@ -4,7 +4,7 @@
   width: 100px;
   height: 100px;
   @media screen and (max-width: 1024px) {
-    width: 50px;
+    width: 40px;
     height: 40px;
   }
   svg {
@@ -19,6 +19,56 @@
     }
     &:nth-of-type(2) {
       animation: mainSvgel2 5s ease-in-out infinite;
+    }
+  }
+}
+.starSvg {
+  animation: starRotate 5s ease-in-out infinite;
+  svg {
+    path {
+      &:nth-of-type(1) {
+        animation: starArmYB 2.5s ease-in-out infinite;
+      }
+      &:nth-of-type(2) {
+        animation: starArmXR 2.5s ease-in-out infinite;
+      }
+      &:nth-of-type(3) {
+        animation: starArmYT 2.5s ease-in-out infinite;
+      }
+      &:nth-of-type(4) {
+        animation: starArmXL 2.5s ease-in-out infinite;
+      }
+    }
+  }
+}
+
+.pnSVG {
+  animation: cycleRotate 5s ease-in-out infinite;
+
+  svg {
+    path {
+      &:nth-of-type(1) {
+        animation: cycleArmT 5s ease-in-out infinite;
+      }
+      &:nth-of-type(2) {
+        // animation: cycleArmL 5s ease-in-out infinite;
+      }
+      &:nth-of-type(3) {
+        animation: cycleArmL 5s ease-in-out infinite;
+      }
+      &:nth-of-type(4) {
+      }
+      &:nth-of-type(5) {
+        animation: cycleArmB 5s ease-in-out infinite;
+      }
+      &:nth-of-type(6) {
+        // animation: cycleArmL 5s ease-in-out infinite;
+      }
+      &:nth-of-type(7) {
+        animation: cycleArmR 5s ease-in-out infinite;
+      }
+      &:nth-of-type(8) {
+      }
     }
   }
 }
@@ -59,5 +109,185 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+// star animations section
+@keyframes starRotate {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+// star animations section
+@keyframes starArmXR {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes starArmXL {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes starArmYT {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes starArmYB {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+// cycle or project name svg animations
+@keyframes cycleRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes cycleArmT {
+  0% {
+    transform: translateY(0);
+    fill: rgba(0, 0, 0);
+  }
+  20% {
+    transform: translateY(-3px);
+    fill: rgba(0, 0, 0, 0.481);
+  }
+  40% {
+    transform: translateY(0);
+    fill: #b889d8;
+  }
+  60% {
+    transform: translateY(0);
+    fill: #b889d8;
+  }
+  80% {
+    transform: translateY(-3px);
+    fill: #b889d883;
+  }
+  100% {
+    transform: translateY(0);
+    fill: rgba(0, 0, 0);
+  }
+}
+
+@keyframes cycleArmB {
+  0% {
+    transform: translateY(0);
+    fill: rgba(0, 0, 0);
+  }
+  20% {
+    transform: translateY(3px);
+    fill: rgba(0, 0, 0, 0.481);
+  }
+  40% {
+    transform: translateY(0);
+    fill: #b889d8;
+  }
+  60% {
+    transform: translateY(0);
+    fill: #b889d8;
+  }
+  80% {
+    transform: translateY(3px);
+    fill: #b889d883;
+  }
+  100% {
+    transform: translateY(0);
+    fill: rgba(0, 0, 0);
+  }
+}
+
+@keyframes cycleArmR {
+  0% {
+    transform: translateX(0);
+    fill: rgba(0, 0, 0);
+  }
+  20% {
+    transform: translateX(-3px);
+    fill: rgba(0, 0, 0, 0.481);
+  }
+  40% {
+    transform: translateX(0);
+    fill: #b889d8;
+  }
+  60% {
+    transform: translateX(0);
+    fill: #b889d8;
+  }
+  80% {
+    transform: translateX(-3px);
+    fill: #b889d883;
+  }
+  100% {
+    transform: translateX(0);
+    fill: rgba(0, 0, 0);
+  }
+}
+
+@keyframes cycleArmL {
+  0% {
+    transform: translateX(0);
+    fill: rgba(0, 0, 0);
+  }
+  20% {
+    transform: translateX(3px);
+    fill: rgba(0, 0, 0, 0.481);
+  }
+  40% {
+    transform: translateX(0);
+    fill: #b889d8;
+  }
+  60% {
+    transform: translateX(0);
+    fill: #b889d8;
+  }
+  80% {
+    transform: translateX(3px);
+    fill: #b889d883;
+  }
+  100% {
+    transform: translateX(0);
+    fill: rgba(0, 0, 0);
   }
 }

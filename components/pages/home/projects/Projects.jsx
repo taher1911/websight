@@ -125,7 +125,7 @@ export default function Projects() {
                   className={`flex justify-between items-center ${classes.container} z-2`}
                 >
                   <div className={`flex items-center gap-2 ${classes.head}`}>
-                    <ProjectNameSVG />
+                    <ProjectNameSVG width={24} height={24} />
                     <span className="text-[16px] font-[600]">{p.name}</span>
                   </div>
                   <Link href={p.href} className={classes.link}>

@@ -17,9 +17,7 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
-    svg {
-      animation: animateSvg 4s ease-in-out infinite alternate;
-    }
+
     span {
       color: #1c1f27;
       font-size: 24px;
@@ -50,9 +48,6 @@
         border-radius: 30px;
         border: 1px solid #1c1f27;
         background: #e0c6e4;
-        svg {
-          animation: animateSvg 4s ease-in-out infinite alternate;
-        }
       }
       .link {
         position: relative;
@@ -99,23 +94,5 @@
       font-family: "Roboto", sans-serif;
       margin-top: 6px;
     }
-  }
-}
-
-@keyframes animateSvg {
-  0% {
-    transform: rotate(0deg);
-    opacity: 1;
-  }
-
-  50% {
-    transform: rotate(150deg) scale(0.9);
-    opacity: 0.5;
-  }
-
-  100% {
-    transform: rotate(0deg);
-    opacity: 1;
-    color: #b889d8 !important;
   }
 }

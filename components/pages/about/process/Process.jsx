@@ -5,6 +5,7 @@ import { Navigation } from "swiper/modules";
 import Achievements from "@/components/shared/achievements/Achievements";
 // Import Swiper styles
 import "swiper/css";
+import ProjectNameSVG from "@/components/shared/icons/ProjectNameSvg";
 export default function Process() {
   const process = [
     {
@@ -37,7 +38,7 @@ export default function Process() {
       <Achievements linkTXT={"Contact us"} linkURL={"/contact"} />
       <div className="lg:w-[40%]">
         <div className="flex justify-center lg:justify-start items-center gap-3">
-          <svg
+          {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             width="36"
             height="36"
@@ -64,7 +65,8 @@ export default function Process() {
               d="M18.1422 18.1422L32.2844 6.82853L29.4559 4.00011L18.1422 18.1422Z"
               fill="#1C1F27"
             />
-          </svg>
+          </svg> */}
+          <ProjectNameSVG width={36} height={36} />
           <span className="text-[24px] font-[600] leading-[130%] lg:text-[36px]">
             Our process
           </span>
