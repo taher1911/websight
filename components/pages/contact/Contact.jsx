@@ -12,15 +12,47 @@ export default function ContactUs() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(
-      `your name:${name}, your email:${email}, your message:${message}`
-    );
-    setName("");
-    setEmail("");
-    setMessage("");
+    //check name is valid
+    if (name.length <= 0) {
+      setError("please enter your name");
+      return;
+    }
+    //check email is valid
+    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const isValidEmail = emailRegex.test(email);
+    if (!isValidEmail) {
+      setError("please enter a valid email");
+
+      return;
+    } else {
+      setError("");
+      setLoading(true);
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({ name, email, message }),
+        });
+        setLoading(false);
+        if (res.ok) {
+          setName("");
+          setEmail("");
+          setMessage("");
+          //popup
+        } else {
+          throw new Error("Failed to send the Message.");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
   return (
     <section className="my-[3rem] grid grid-cols-1 lg:grid-cols-2 lg:gap-[70px] lg:my-[14vh]">
@@ -87,8 +119,22 @@ export default function ContactUs() {
             className="px-[20px] py-[10px] w-full bg-[#E0C6E4] rounded-[30px] border-[1px] border-solid border-[#1C1F27] shadow-[2px_2px_0px_0px_#1C1F27] mt-[15px] outline-none font-[600] lg:h-[150px] lg:text-[20px]"
           ></textarea>
         </div>
-        <div className="w-full flex justify-center lg:justify-end lg:-translate-y-4">
-          <button type="submit" className={`${BtnClass.btn} w-[202px]`}>
+
+        <div className="w-full flex flex-col items-center lg:items-end lg:-translate-y-4">
+          <p className="text-red-400 w-full capitalize text-center font-[600] tracking-[2px]">
+            {error}
+          </p>
+          {loading && (
+            <p className="text-green-400 w-full capitalize text-center font-[600] tracking-[2px]">
+              Sending...
+            </p>
+          )}
+
+          <button
+            type="submit"
+            className={`${BtnClass.btn} w-[202px]`}
+            disabled={loading}
+          >
             <span
               className={BtnClass.text}
               style={{

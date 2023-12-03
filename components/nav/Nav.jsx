@@ -16,6 +16,14 @@ export default function Nav() {
     setClicked((prev) => !prev);
   };
 
+  //for pages not belongs to user
+  if (pathname.startsWith("/dashboard")) {
+    return;
+  }
+  if (pathname.startsWith("/login")) {
+    return;
+  }
+
   return (
     <>
       <nav className="flex justify-between items-center my-[33px] mx-[30px] lg:mx-auto lg:w-[90%] max-w-[1250px] ">

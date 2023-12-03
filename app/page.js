@@ -5,10 +5,12 @@ import Services from "@/components/pages/home/services/Services";
 export default function Home() {
   return (
     <main className="">
-      <Landing />
-      <About />
-      <Services link={true} />
-      <Projects />
+      <div className="mx-[30px] md:w-[90%] md:max-w-[1250px] md:mx-auto">
+        <Landing />
+        <About />
+        <Services link={true} />
+        <Projects />
+      </div>
     </main>
   );
 }

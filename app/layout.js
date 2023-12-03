@@ -21,9 +21,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={myFont.className}>
         <Nav />
-        <div className="mx-[30px] md:w-[90%] md:max-w-[1250px] md:mx-auto">
-          {children}
-        </div>
+
+        {children}
+
         <Footer />
       </body>
     </html>

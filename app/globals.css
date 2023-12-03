@@ -56,3 +56,22 @@ body {
   border: 2px solid #1c1f27;
   background: #b889d8 !important;
 }
+
+/* compose editor  */
+.ck-editor__editable_inline,
+.ck-blurred,
+.ck-blurred p,
+.ck-blurred h1,
+.ck-blurred h2,
+.ck-blurred h3 {
+  color: #000;
+  background: transparent;
+}
+
+.MuiSvgIcon-root {
+  fill: #b7bac1;
+}
+
+.service-container::-webkit-scrollbar {
+  display: none;
+}

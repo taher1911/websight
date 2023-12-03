@@ -102,7 +102,9 @@ export default function Project({ params, searchParams }) {
   console.log(project);
   return (
     <main>
-      <ProjectComponent project={project[0]} projects={projects} />
+      <div className="mx-[30px] md:w-[90%] md:max-w-[1250px] md:mx-auto">
+        <ProjectComponent project={project[0]} projects={projects} />
+      </div>
     </main>
   );
 }

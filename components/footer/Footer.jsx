@@ -1,8 +1,19 @@
+"use client";
 import classes from "./Footer.module.scss";
 import Socials from "../shared/socials/Socials";
 import Languages from "../shared/languages/Languages";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 export default function Footer() {
+  const pathname = usePathname();
+  //for pages not belongs to user
+  if (pathname.startsWith("/dashboard")) {
+    return;
+  }
+  if (pathname.startsWith("/login")) {
+    return;
+  }
   return (
     <footer
       className={`flex flex-col justify-between items-center my-[33px] mx-[30px] pt-[2rem] ${classes.footer} lg:p-[30px] lg:pr-[4rem] `}

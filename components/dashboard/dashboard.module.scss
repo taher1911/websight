@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  .menu {
+    flex: 1;
+    padding: 20px;
+  }
+  .content {
+    flex: 4;
+    padding: 20px;
+  }
+}
