@@ -33,7 +33,7 @@ export default function ContactUs() {
       setError("");
       setLoading(true);
       try {
-        const res = await fetch(`${process.env.BASE_URL}/api/contact`, {
+        const res = await fetch(`https://websight.vercel.app/api/contact`, {
           method: "POST",
           headers: {
             "Content-type": "application/json",
