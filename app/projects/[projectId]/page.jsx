@@ -1,4 +1,20 @@
+"use client";
+import { useState, useEffect } from "react";
 import ProjectComponent from "@/components/pages/projects/projectId/Project";
+import Loading from "@/components/shared/loading/Loading";
+
+//fetching projects
+const getProjects = async () => {
+  try {
+    const res = await fetch(`/api/project`);
+    if (!res.ok) {
+      throw new Error("Failed to fetch projects");
+    }
+    return res.json();
+  } catch (error) {
+    console.log("Error loading projects: ", error);
+  }
+};
 
 const demoData = [
   {
@@ -97,14 +113,42 @@ const projects = [
   },
 ];
 export default function Project({ params, searchParams }) {
-  const id = params.projectId;
-  const project = demoData.filter((el) => el.id == id);
-  console.log(project);
+  const [loading, setLoaing] = useState(true);
+  const [projectsData, setProjectsData] = useState(null);
+  const [project, setProject] = useState(null);
+
+  //fetch Partners
+  const GetData = async () => {
+    const { projects } = await getProjects();
+    setProjectsData(projects);
+
+    // return messages;
+  };
+
+  useEffect(() => {
+    GetData();
+  }, []);
+
+  useEffect(() => {
+    if (projectsData != null) {
+      const id = params.projectId;
+      const p = projectsData.filter((el) => el._id == id);
+      setProject(p);
+      setLoaing(false);
+    }
+  }, [projectsData]);
+
+  useEffect(() => {}, []);
+
   return (
     <main>
-      <div className="mx-[30px] md:w-[90%] md:max-w-[1250px] md:mx-auto">
-        <ProjectComponent project={project[0]} projects={projects} />
-      </div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="mx-[30px] md:w-[90%] md:max-w-[1250px] md:mx-auto">
+          <ProjectComponent project={project[0]} projects={projectsData} />
+        </div>
+      )}
     </main>
   );
 }

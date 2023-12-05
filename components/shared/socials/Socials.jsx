@@ -6,7 +6,8 @@ export default function Socials() {
       <ul className="flex justify-center items-center gap-4">
         <li>
           <a
-            href="/"
+            href="https://www.instagram.com/trywebsight/"
+            target="_blank"
             aria-label="click to vist"
             className="flex justify-center items-center p-[4px] w-[28px] h-[28px] rounded-full bg-black "
           >
@@ -26,7 +27,8 @@ export default function Socials() {
         </li>
         <li>
           <a
-            href="/"
+            href="https://www.instagram.com/trywebsight/"
+            target="_blank"
             aria-label="click to vist"
             className="flex justify-center items-center p-[4px] w-[28px] h-[28px]  rounded-full bg-black "
           >
@@ -46,7 +48,8 @@ export default function Socials() {
         </li>
         <li>
           <a
-            href="/"
+            href="https://www.instagram.com/trywebsight/"
+            target="_blank"
             aria-label="click to vist"
             className="flex justify-center items-center p-[4px] w-[28px] h-[28px]  rounded-full bg-black "
           >

@@ -28,7 +28,7 @@ export default function ProjectComponent({ project, projects }) {
               <div className="hidden lg:block w-[265px]">
                 <HomeBtn
                   text={"View website"}
-                  url={project.url}
+                  href={project.link}
                   padding={false}
                 />
               </div>
@@ -67,8 +67,8 @@ export default function ProjectComponent({ project, projects }) {
               }}
               loop={true}
             >
-              {project.images.map((p) => (
-                <SwiperSlide key={p}>
+              {project.images.map((p, i) => (
+                <SwiperSlide key={i}>
                   <div className="w-full lg:max-w-[1134px] lg:mx-auto">
                     {/* <ImageComponent src={p} className="w-full" /> */}
                     <Image
@@ -93,7 +93,7 @@ export default function ProjectComponent({ project, projects }) {
                     <div className="text-center mt-[10px] lg:flex lg:justify-end lg:w-full">
                       <HomeBtn
                         text={"View website"}
-                        href={project.url}
+                        href={project.link}
                         padding={false}
                       />
                     </div>
@@ -119,7 +119,7 @@ export default function ProjectComponent({ project, projects }) {
             </span>
           </div>
           <div className="flex lg:hidden flex-col justify-center items-center my-10">
-            <HomeBtn text={"View website"} url={project.url} padding={false} />
+            <HomeBtn text={"View website"} url={project.link} padding={false} />
           </div>
         </div>
       </div>
@@ -137,22 +137,22 @@ export default function ProjectComponent({ project, projects }) {
         <div className="hidden lg:grid lg:grid-cols-3 gap-6 mt-10 mb-[6rem] lg:mb-10">
           {projects.map((p) => (
             <div
-              key={p.id}
+              key={p._id}
               className={`${classes.sliderElement} ${classes.other} w-[335px] bg-[image:var(--image-url)]  relative`}
-              style={{ boxShadow: "none", "--image-url": `url(${p.img})` }}
+              style={{ boxShadow: "none", "--image-url": `url(${p.cover})` }}
             >
               <Link
-                href={p.href}
+                href={`/projects/${p._id}`}
                 className="absolute w-full h-full left-0 top-0 rounded-[30px]"
               ></Link>
               <div
                 className={`flex justify-between items-center ${classes.container} z-2`}
               >
                 <div className={`flex items-center gap-2 ${classes.head}`}>
-                  <ProjectNameSVG />
-                  <span className="text-[16px] font-[600]">{p.name}</span>
+                  <ProjectNameSVG width={25} height={25} />
+                  <span className="text-[16px] font-[600]">{p.title}</span>
                 </div>
-                <Link href={p.href} className={classes.link}>
+                <Link href={`/projects/${p._id}`} className={classes.link}>
                   <span className={classes.arrow}>
                     <Image
                       src="/Mask group.svg"
@@ -173,7 +173,9 @@ export default function ProjectComponent({ project, projects }) {
                   </span>
                 </Link>
               </div>
-              <span className={`text-[16px]  ${classes.label}`}>{p.label}</span>
+              <span className={`text-[16px]  ${classes.label}`}>
+                #{p.tags[0]}
+              </span>
             </div>
           ))}
         </div>
@@ -197,24 +199,27 @@ export default function ProjectComponent({ project, projects }) {
             pagination={{ clickable: true }}
           >
             {projects.map((p) => (
-              <SwiperSlide key={p}>
+              <SwiperSlide key={p._id}>
                 <div
-                  key={p.id}
+                  key={p._id}
                   className={`${classes.sliderElement} bg-[image:var(--image-url)]  relative`}
-                  style={{ boxShadow: "none", "--image-url": `url(${p.img})` }}
+                  style={{
+                    boxShadow: "none",
+                    "--image-url": `url(${p.cover})`,
+                  }}
                 >
                   <Link
-                    href={p.href}
+                    href={`/projects/${p._id}`}
                     className="absolute w-full h-full left-0 top-0 rounded-[30px]"
                   ></Link>
                   <div
                     className={`flex justify-between items-center ${classes.container} z-2`}
                   >
                     <div className={`flex items-center gap-2 ${classes.head}`}>
-                      <ProjectNameSVG />
-                      <span className="text-[16px] font-[600]">{p.name}</span>
+                      <ProjectNameSVG width={20} height={20} />
+                      <span className="text-[16px] font-[600]">{p.title}</span>
                     </div>
-                    <Link href={p.href} className={classes.link}>
+                    <Link href={`/projects/${p._id}`} className={classes.link}>
                       <span className={classes.arrow}>
                         <Image
                           src="/Mask group.svg"
@@ -236,7 +241,7 @@ export default function ProjectComponent({ project, projects }) {
                     </Link>
                   </div>
                   <span className={`text-[16px]  ${classes.label}`}>
-                    {p.label}
+                    #{p.tags[0]}
                   </span>
                 </div>
               </SwiperSlide>

@@ -1,99 +1,24 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import EditSerive from "./Edit";
 
-const demoData = [
-  {
-    id: 1,
-    title: "UX/UI Design",
-    title_ar: "تصميم UX /UI",
-    img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701129021/websight/Component_6_hcdx3g.svg",
-    services: [
-      {
-        id: 1,
-        name: "Wireframing and Prototyping",
-        name_ar: "الأسلاك والنماذج الأولية",
-      },
-      {
-        id: 2,
-        name: "User Research",
-        name_ar: "أبحاث المستخدم",
-      },
-      {
-        id: 3,
-        name: "Information Architecture",
-        name_ar: "هندسة المعلومات",
-      },
-      {
-        id: 4,
-        name: "Responsive Design",
-        name_ar: "تصميم متجاوب",
-      },
-      {
-        id: 5,
-        name: "Visual Design",
-        name_ar: "التصميم المرئي",
-      },
-    ],
-  },
-  {
-    id: 2,
-    title: "Web Development",
-    title_ar: " برمجة الويب",
-    img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701129021/websight/Component_6_hcdx3g.svg",
-    services: [
-      {
-        id: 1,
-        name: "Front-End Development",
-        name_ar: "تطوير الواجهة الأمامية",
-      },
-      {
-        id: 2,
-        name: "Back-End Development",
-        name_ar: "تطوير الخلفية",
-      },
-      {
-        id: 3,
-        name: "Responsive Design",
-        name_ar: "تصميم متجاوب",
-      },
-      {
-        id: 4,
-        name: "Content Management System",
-        name_ar: "نظام إدارة المحتوى",
-      },
-    ],
-  },
-  {
-    id: 3,
-    title: "Mobile App",
-    title_ar: "تطبيقات الموبايل",
-    img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701129021/websight/Component_6_hcdx3g.svg",
-    services: [
-      {
-        id: 1,
-        name: "Intuitive User Interface",
-        name_ar: "واجهة مستخدم بديهية",
-      },
-      {
-        id: 2,
-        name: "Platform Compatibility",
-        name_ar: "توافق المنصة",
-      },
-      {
-        id: 3,
-        name: "Security and Data Protection",
-        name_ar: "الأمن وحماية البيانات",
-      },
-      {
-        id: 4,
-        name: "Offline Functionality",
-        name_ar: "وظيفة دون اتصال",
-      },
-    ],
-  },
-];
+//fetching services
+const getServices = async () => {
+  try {
+    const res = await fetch(`/api/services`, {
+      cache: "no-store",
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch services");
+    }
+    return res.json();
+  } catch (error) {
+    console.log("Error loading services: ", error);
+  }
+};
 const Services = () => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [edit, setEdit] = useState(false);
   const [editData, setEditData] = useState({});
   //input variables
@@ -134,7 +59,18 @@ const Services = () => {
     }
   };
 
-  const saveHandler = () => {
+  //fetch services
+  const GetServices = async () => {
+    const { services } = await getServices();
+    setData(services);
+    setLoading(false);
+    // return messages;
+  };
+  useEffect(() => {
+    GetServices();
+  }, []);
+
+  const saveHandler = async () => {
     const service = {
       ...editData,
       title: title,
@@ -183,43 +119,65 @@ const Services = () => {
           ],
     };
 
-    console.log(service);
-    // update method here
-
-    setEdit(false);
+    try {
+      const res = await fetch(`/api/services`, {
+        method: "PUT",
+        cache: "no-store",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(service),
+      });
+      if (!res.ok) {
+        throw new Error("Failed to fetch services");
+      }
+      GetServices();
+      setEdit(false);
+      setValue5("");
+      setValue5Ar("");
+      setEditData({});
+      return res.json();
+    } catch (error) {
+      console.log("Error loading services: ", error);
+    }
   };
   return (
     <>
       <div
         className={`bg-bgSoft rounded-lg p-[30px] mt-8 text-gray-300 trcking-[2px] `}
       >
-        <div className="grid grid-cols-3 gap-4">
-          {demoData.map((el, i) => (
-            <div key={i} className={`bg-dashBg rounded-lg p-6 tracking-[2px]`}>
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="flex items-center gap-2 font-[600]">
-                  <span>
-                    <img src={el.img} />
-                  </span>
-                  {el.title}
-                </h3>
-                <button
-                  title="Edit"
-                  onClick={() => editHandler(el)}
-                  className="capitalize tracking-[2px] bg-secColor rounded-md px-4 py-1"
-                >
-                  edit
-                </button>
-              </div>
+        {loading ? (
+          <p className="text-center tracking-[2px] my-6">Loading...</p>
+        ) : (
+          <div className="grid grid-cols-3 gap-4">
+            {data.map((el, i) => (
+              <div
+                key={i}
+                className={`bg-dashBg rounded-lg p-6 tracking-[2px]`}
+              >
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="flex items-center gap-2 font-[600]">
+                    <span>
+                      <img src={el.img} />
+                    </span>
+                    {el.title}
+                  </h3>
+                  <button
+                    title="Edit"
+                    onClick={() => editHandler(el)}
+                    className="capitalize tracking-[2px] bg-secColor rounded-md px-4 py-1"
+                  >
+                    edit
+                  </button>
+                </div>
 
-              <ul className="flex flex-col gap-3">
-                {el.services.map((s, i) => (
-                  <li key={i}>- {s.name}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+                <ul className="flex flex-col gap-3">
+                  {el.services.map((s, i) => (
+                    <li key={i}>- {s.name}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
       {edit && (
         <EditSerive

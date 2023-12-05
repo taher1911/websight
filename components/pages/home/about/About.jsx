@@ -1,30 +1,19 @@
 import classes from "./About.module.scss";
 import Achievements from "@/components/shared/achievements/Achievements";
-export default function About() {
-  const images = [
-    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003990/websight/w1_ohqqjj.png",
-    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003988/websight/w2_ormpqc.png",
-    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003988/websight/w3_k7c3ha.png",
-    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003989/websight/w4_yrnx2u.png",
-    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003988/websight/w5_lufcbh.png",
-    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003989/websight/w6_it3e60.png",
-    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003990/websight/w7_brd3ik.png",
-    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003990/websight/w8_whziew.png",
-    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003994/websight/w9_qauzl2.png",
-    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003995/websight/w10_n6qffr.png",
-    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003995/websight/w11_ro26au.png",
-    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003996/websight/w12_tmsyne.png",
-    "https://res.cloudinary.com/freelancer3223/image/upload/v1701003997/websight/w13_t67r9g.png",
-    "https://res.cloudinary.com/freelancer3223/image/upload/v1701004001/websight/w14_lwymsl.png",
-    "https://res.cloudinary.com/freelancer3223/image/upload/v1701004002/websight/w15_cnxbfj.png",
-    "https://res.cloudinary.com/freelancer3223/image/upload/v1701004002/websight/w16_xmle3g.png",
-    "https://res.cloudinary.com/freelancer3223/image/upload/v1701004005/websight/w17_cz5hdq.png",
-  ];
-
+export default function About({ partners, lang, homeText }) {
+  const element = document.getElementById("slider-images");
+  console.log(element?.width);
   return (
     <section className={classes.about}>
       <div className={classes.working}>
-        <div className={classes.text}>
+        <div
+          className={`${classes.text}`}
+          style={{
+            width: lang == "en" ? "90%" : "100%",
+            justifyContent: lang == "en" ? "start" : "end",
+            flexDirection: lang == "en" ? "row" : "row-reverse",
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="25"
@@ -42,17 +31,30 @@ export default function About() {
               fill="#B889D8"
             />
           </svg>
-          <p>Working on a worldwide level</p>
+          <p
+            style={{
+              direction: lang == "en" ? "ltr" : "rtl",
+            }}
+          >
+            {" "}
+            {lang == "en" ? homeText.brandTitle : homeText.brandTitleAr}
+          </p>
         </div>
         <div className={classes.images}>
-          <div className={classes.container}>
-            {images.map((img) => (
-              <img src={`${img}`} alt={`brand`} key={img} />
+          <div className={classes.container} id="slider-images">
+            {partners?.map((img) => (
+              <img src={img.image} alt={`brand`} key={img._id} />
             ))}
           </div>
         </div>
       </div>
-      <Achievements linkTXT={"About us"} linkURL={"/about"} />
+      <Achievements
+        linkTXT={lang == "en" ? "About us" : "المزيد عنا"}
+        linkURL={"/about"}
+        lang={lang}
+        title={homeText.achievementTitle}
+        titleAr={homeText.achievementTitleAr}
+      />
     </section>
   );
 }

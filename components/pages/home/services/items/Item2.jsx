@@ -1,8 +1,13 @@
 import classes from "./Item2.module.scss";
-export default function Item2() {
+export default function Item2({ data, lang }) {
   return (
     <div className={classes.item}>
-      <div className={classes.title}>
+      <div
+        className={classes.title}
+        style={{
+          flexDirection: lang == "en" ? "row" : "row-reverse",
+        }}
+      >
         <div className={classes.svg}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -33,13 +38,32 @@ export default function Item2() {
             />
           </svg>
         </div>
-        <p className="w-[170px]">Web Development</p>
+        <p
+          className="w-[170px]"
+          style={{
+            textAlign: lang == "en" ? "left" : "right",
+            width: lang == "en" ? "170px" : "auto",
+          }}
+        >
+          {lang == "en" ? data?.title : data.title_ar}
+        </p>
       </div>
       <div className={classes.titles}>
-        <div className={`${classes.el1}`}>Front-End Development</div>
-        <div className={classes.el2}>Back-End Development</div>
-        <div className={` ${classes.el3}`}>Responsive Design</div>
-        <div className={`${classes.el4}`}>Content Management System</div>
+        <div className={`${classes.el1}`}>
+          {lang == "en" ? data?.services[0].name : data?.services[0].name_ar}
+        </div>
+        <div className={classes.el2}>
+          {" "}
+          {lang == "en" ? data?.services[1].name : data?.services[1].name_ar}
+        </div>
+        <div className={` ${classes.el3}`}>
+          {" "}
+          {lang == "en" ? data?.services[2].name : data?.services[2].name_ar}
+        </div>
+        <div className={`${classes.el4}`}>
+          {" "}
+          {lang == "en" ? data?.services[3].name : data?.services[3].name_ar}
+        </div>
       </div>
     </div>
   );

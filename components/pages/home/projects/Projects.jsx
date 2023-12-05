@@ -10,56 +10,34 @@ import StarSVG from "@/components/shared/icons/Star";
 import ProjectNameSVG from "@/components/shared/icons/ProjectNameSvg";
 import HomeBtn from "@/components/homeBtn/HomeBtn";
 import Link from "next/link";
-export default function Projects() {
-  const projects = [
-    {
-      id: 1,
-      name: "Cycle",
-      label: "#UX/UI design",
-      href: "/projects/1",
-      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701114247/websight/Rectangle_45_aflhpz.png",
-    },
-    {
-      id: 2,
-      name: "Chameleon",
-      label: "#UX/UI design",
-      href: "/projects/2",
-      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701114245/websight/Property_1_Default_c01jyx.png",
-    },
-    {
-      id: 3,
-      name: "Studio 4T",
-      label: "#UX/UI design",
-      href: "/projects/3",
-      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701114236/websight/Rectangle_45_1_rg5j4g.png",
-    },
-    {
-      id: 4,
-      name: "Yogi",
-      label: "#UX/UI design",
-      href: "/projects/4",
-      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701114236/websight/Rectangle_45_1_rg5j4g.png",
-    },
-  ];
+export default function Projects({ projectsData, lang, homeText }) {
   return (
     <section className={classes.projects}>
-      <div className={classes.title}>
-        <StarSVG /> <span>Recent projects</span>
+      <div
+        className={classes.title}
+        style={{
+          flexDirection: lang == "en" ? "row" : "row-reverse",
+        }}
+      >
+        <StarSVG />{" "}
+        <span>
+          {lang == "en" ? homeText.projectsTitle : homeText.projectsTitleAr}
+        </span>
       </div>
 
       {/* pc projects  */}
       <div className="hidden lg:grid grid-cols-2 gap-8 my-10">
-        {projects.map((p) => (
+        {projectsData.map((p) => (
           <div
-            key={p.id}
+            key={p._id}
             className={`${classes.sliderElement} ${classes.pc_projcet} h-[500px]   flex flex-col justify-between bg-[image:var(--image-url)] relative`}
             style={{
               boxShadow: "none",
-              "--image-url": `url(${p.img})`,
+              "--image-url": `url(${p.cover})`,
             }}
           >
             <Link
-              href={p.href}
+              href={`/projects/${p._id}`}
               className="absolute w-full h-full left-0 top-0 rounded-[30px]"
             ></Link>
             <div className="px-6 pt-4 ">
@@ -67,10 +45,10 @@ export default function Projects() {
                 className={`flex justify-between items-center ${classes.container} z-2`}
               >
                 <div className={`flex items-center gap-2 ${classes.head}`}>
-                  <ProjectNameSVG />
-                  <span className="text-[16px] font-[600]">{p.name}</span>
+                  <ProjectNameSVG width={30} height={30} />
+                  <span className="text-[16px] font-[600]">{p.title}</span>
                 </div>
-                <Link href={p.href} className={classes.link}>
+                <Link href={`/projects/${p._id}`} className={classes.link}>
                   <span className={classes.arrow}>
                     <Image
                       src="/Mask group.svg"
@@ -91,7 +69,9 @@ export default function Projects() {
                   </span>
                 </Link>
               </div>
-              <span className={`text-[16px]  ${classes.label}`}>{p.label}</span>
+              <span className={`text-[16px]  ${classes.label}`}>
+                #{p.tags[0]}
+              </span>
             </div>
 
             <div>
@@ -121,15 +101,15 @@ export default function Projects() {
           }}
           loop={true}
         >
-          {projects.map((p) => (
-            <SwiperSlide key={p.id}>
+          {projectsData.map((p) => (
+            <SwiperSlide key={p._id}>
               <div
                 // key={p.id}
                 className={`${classes.sliderElement} bg-[image:var(--image-url)] relative`}
-                style={{ boxShadow: "none", "--image-url": `url(${p.img})` }}
+                style={{ boxShadow: "none", "--image-url": `url(${p.cover})` }}
               >
                 <Link
-                  href={p.href}
+                  href={`/projects/${p._id}`}
                   className="absolute w-full h-full left-0 top-0 rounded-[30px]"
                 ></Link>
                 <div
@@ -137,9 +117,9 @@ export default function Projects() {
                 >
                   <div className={`flex items-center gap-2 ${classes.head}`}>
                     <ProjectNameSVG width={24} height={24} />
-                    <span className="text-[16px] font-[600]">{p.name}</span>
+                    <span className="text-[16px] font-[600]">{p.title}</span>
                   </div>
-                  <Link href={p.href} className={classes.link}>
+                  <Link href={`/projects/${p._id}`} className={classes.link}>
                     <span className={classes.arrow}>
                       <img src="/Mask group.svg" alt="arrow" />
                     </span>
@@ -149,7 +129,7 @@ export default function Projects() {
                   </Link>
                 </div>
                 <span className={`text-[16px]  ${classes.label}`}>
-                  {p.label}
+                  {p.tags[0]}
                 </span>
               </div>
             </SwiperSlide>
@@ -168,7 +148,11 @@ export default function Projects() {
         </div>
       </div>
       <div className="flex flex-col justify-center items-center lg:items-start">
-        <HomeBtn text={"View all"} href="/projects" padding={true} />
+        <HomeBtn
+          text={lang == "en" ? "View all" : "عرض الكل"}
+          href="/projects"
+          padding={true}
+        />
       </div>
     </section>
   );

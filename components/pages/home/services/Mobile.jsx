@@ -12,7 +12,7 @@ import "swiper/css";
 import classes from "./Mobile.module.scss";
 import MainSVG from "@/components/shared/icons/MainSvg";
 
-export default function Mobile({ link }) {
+export default function Mobile({ link, data, lang, homeText }) {
   return (
     <div className={classes.mobile}>
       {/* <svg
@@ -30,8 +30,16 @@ export default function Mobile({ link }) {
         />
       </svg> */}
       <MainSVG />
-      <p className={classes.title}>Our services</p>
-      <p className={classes.desc}>Get started with a Free Consultation</p>
+      <p className={classes.title}>
+        {" "}
+        {lang == "en" ? homeText.serviceTitle : homeText.serviceTitleAr}
+      </p>
+      <p className={classes.desc}>
+        {" "}
+        {lang == "en"
+          ? homeText.serviceDescription
+          : homeText.serviceDescriptionAr}
+      </p>
 
       <div className="w-[100%]  mt-4">
         <Swiper
@@ -45,13 +53,13 @@ export default function Mobile({ link }) {
           loop={true}
         >
           <SwiperSlide>
-            <Item1 />
+            <Item1 data={data[0]} lang={lang} />
           </SwiperSlide>
           <SwiperSlide>
-            <Item2 />
+            <Item2 data={data[1]} lang={lang} />
           </SwiperSlide>
           <SwiperSlide>
-            <Item3 />
+            <Item3 data={data[2]} lang={lang} />
           </SwiperSlide>
         </Swiper>
       </div>
@@ -65,7 +73,13 @@ export default function Mobile({ link }) {
           <img src="./rightar.svg" alt="right" />
         </span>
       </div>
-      {link && <HomeBtn text="Book consultation" href="/" padding={false} />}
+      {link && (
+        <HomeBtn
+          text={lang == "en" ? "Book consultation" : "احجز استشارة"}
+          href="/"
+          padding={false}
+        />
+      )}
     </div>
   );
 }

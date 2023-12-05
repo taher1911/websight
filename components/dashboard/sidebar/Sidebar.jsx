@@ -8,6 +8,7 @@ import {
   AiOutlineLayout,
 } from "react-icons/ai";
 import { FaHandshakeSimple } from "react-icons/fa6";
+import { MdTranslate } from "react-icons/md";
 import { FaTree } from "react-icons/fa";
 import { BsBoundingBox } from "react-icons/bs";
 import Link from "next/link";
@@ -49,6 +50,11 @@ const menuItems = [
     title: "links",
     path: "/dashboard/links",
     icon: <FaTree />,
+  },
+  {
+    title: "translate",
+    path: "/dashboard/translate",
+    icon: <MdTranslate />,
   },
 ];
 const DashbardSidebar = () => {

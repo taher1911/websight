@@ -2,19 +2,31 @@ import HomeBtn from "@/components/homeBtn/HomeBtn";
 import classes from "./Style.module.scss";
 import MainSVG from "@/components/shared/icons/MainSvg";
 
-export default function Landing() {
+export default function Landing({ lang, homeText }) {
   return (
-    <section className={classes.landing}>
+    <section className={`${classes.landing} `}>
       <div className={classes.box1}>
         <div className="lg:hidden">
           <MainSVG />
         </div>
-        <h2 className={classes["welcome"]}>
-          Welcome to Websight - Where Imagination Meets Innovation
+        <h2
+          className={`${classes.welcome}`}
+          style={{
+            direction: lang == "en" ? "ltr" : "rtl",
+          }}
+        >
+          {lang == "en" ? homeText.mainTitle : homeText.mainTitleAr}
         </h2>
-        <p className={classes.p}>Where creativity knows no bounds</p>
+        <p className={classes.p}>
+          {" "}
+          {lang == "en" ? homeText.mainDescription : homeText.mainDescriptionAr}
+        </p>
         <div className="lg:w-full lg:flex justify-end items-end">
-          <HomeBtn text="Dive in" href="/" padding={true} />
+          <HomeBtn
+            text={lang == "en" ? "Dive in" : "اكتشف اكثر"}
+            href="/"
+            padding={true}
+          />
         </div>
       </div>
       <div className={classes.box2}>
@@ -24,9 +36,18 @@ export default function Landing() {
             <MainSVG />
           </div>
           <div className={classes.text}>
-            <span>Code.</span>
-            <span>Design.</span>
-            <span>Deploy.</span>
+            <span>
+              {" "}
+              {lang == "en" ? homeText.mainTitle1 : homeText.mainTitle1Ar}
+            </span>
+            <span>
+              {" "}
+              {lang == "en" ? homeText.mainTitle2 : homeText.mainTitle2Ar}
+            </span>
+            <span>
+              {" "}
+              {lang == "en" ? homeText.mainTitle3 : homeText.mainTitle3Ar}
+            </span>
           </div>
         </div>
       </div>

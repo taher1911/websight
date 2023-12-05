@@ -14,6 +14,7 @@ export default function Footer() {
   if (pathname.startsWith("/login")) {
     return;
   }
+
   return (
     <footer
       className={`flex flex-col justify-between items-center my-[33px] mx-[30px] pt-[2rem] ${classes.footer} lg:p-[30px] lg:pr-[4rem] `}

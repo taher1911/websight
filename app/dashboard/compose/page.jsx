@@ -24,10 +24,22 @@ const Compose = () => {
     }
   }, []);
 
-  const sendHandler = () => {
-    console.log(sendTo);
-    console.log(title);
-    console.log(data);
+  const sendHandler = async () => {
+    if (sendTo.length > 0) {
+      const res = await fetch("http://localhost:3000/api/sendEmail", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({ email: sendTo, title, content: data }),
+      });
+      if (res.ok) {
+        console.log("email send successfully");
+      } else {
+        console.log("sending email faild");
+      }
+    }
+    // console.log(sendTo);
+    // console.log(title);
+    // console.log(data);
   };
 
   return (

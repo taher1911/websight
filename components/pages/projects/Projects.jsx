@@ -7,46 +7,25 @@ import ProjectNameSVG from "@/components/shared/icons/ProjectNameSvg";
 import classes from "./Style.module.scss";
 import Link from "next/link";
 import { useState } from "react";
-export default function ProjectsComp() {
-  const [filterd, setFilterd] = useState({
-    featured: false,
-    online: false,
-    tailored: false,
-    philanthropic: false,
-    interactive: false,
-    reservation: false,
-    uiux: false,
-  });
-  const projects = [
-    {
-      id: 1,
-      name: "Cycle",
-      label: "#UX/UI design",
-      href: "/projects/1",
-      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701114247/websight/Rectangle_45_aflhpz.png",
-    },
-    {
-      id: 2,
-      name: "Chameleon",
-      label: "#UX/UI design",
-      href: "/projects/2",
-      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701114245/websight/Property_1_Default_c01jyx.png",
-    },
-    {
-      id: 3,
-      name: "Studio 4T",
-      label: "#UX/UI design",
-      href: "/projects/3",
-      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701114236/websight/Rectangle_45_1_rg5j4g.png",
-    },
-    {
-      id: 4,
-      name: "Yogi",
-      label: "#UX/UI design",
-      href: "/projects/4",
-      img: "https://res.cloudinary.com/freelancer3223/image/upload/v1701114236/websight/Rectangle_45_1_rg5j4g.png",
-    },
-  ];
+import { useEffect } from "react";
+export default function ProjectsComp({ data, categories }) {
+  const [filterValue, setFilterValue] = useState("");
+  const [filterd, setFilterd] = useState([]);
+
+  useEffect(() => {
+    if (
+      filterValue.toLowerCase() == "featured" ||
+      filterValue.toLowerCase() == ""
+    ) {
+      setFilterd(data);
+    } else {
+      const d = data.filter(
+        (el) => el.tags[0].toLowerCase() == filterValue.toLowerCase()
+      );
+      setFilterd(d);
+    }
+  }, [filterValue]);
+
   return (
     <section className="my-[3rem] lg:my-[10vh]">
       <div className="flex flex-col justify-center lg:justify-start lg:items-start items-center ">
@@ -62,18 +41,37 @@ export default function ProjectsComp() {
           style={{ fontFamily: '"Roboto", sans-serif' }}
         >
           <li
-            className={`p-[10px] rounded-[30px]  cursor-pointer transition-all duration-300 ease-in-out`}
+            className={`p-[10px] rounded-[30px] border-[1px] border-solid border-[#1C1F27]  cursor-pointer transition-all duration-300 ease-in-out`}
             style={{
-              color: filterd.featured ? "#fff" : "#fff",
-              background: filterd.featured ? "black" : "#B889D8",
+              color:
+                filterValue.toLowerCase() == "featured" ? "#fff" : "#1C1F27",
+              background:
+                filterValue.toLowerCase() == "featured" ? "black" : "#E6F3F9",
             }}
-            onClick={() =>
-              setFilterd({ ...filterd, featured: !filterd.featured })
-            }
+            onClick={() => setFilterValue("featured")}
           >
             Featured
           </li>
-          <li
+          {categories.map((el, i) => (
+            <li
+              key={el._id}
+              className={`p-[10px] rounded-[30px] border-[1px] border-solid border-[#1C1F27]  cursor-pointer  transition-all duration-300 ease-in-out`}
+              style={{
+                color:
+                  filterValue.toLowerCase() == el.title.toLowerCase()
+                    ? "#fff"
+                    : "#1C1F27",
+                background:
+                  filterValue.toLowerCase() == el.title.toLowerCase()
+                    ? "black"
+                    : "#E6F3F9",
+              }}
+              onClick={() => setFilterValue(el.title)}
+            >
+              {el.title}
+            </li>
+          ))}
+          {/* <li
             className={`p-[10px] rounded-[30px] border-[1px] border-solid border-[#1C1F27]  cursor-pointer  transition-all duration-300 ease-in-out`}
             style={{
               color: filterd.online ? "#fff" : "#1C1F27",
@@ -141,59 +139,72 @@ export default function ProjectsComp() {
             onClick={() => setFilterd({ ...filterd, uiux: !filterd.uiux })}
           >
             UI/UX Design Studio
-          </li>
+          </li> */}
         </ul>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10 mb-[6rem]">
-          {projects.map((p) => (
-            <div
-              key={p.id}
-              className={`${classes.sliderElement} w-[545px] h-[545px]  bg-[image:var(--image-url)] relative px-6 pt-4 `}
-              style={{ boxShadow: "none", "--image-url": `url(${p.img})` }}
-            >
-              <Link
-                href={p.href}
-                className="absolute w-full h-full left-0 top-0 rounded-[30px]"
-              ></Link>
+
+        {filterd.length <= 0 ? (
+          <p className="text-center font-[600] text-xl w-full mx-auto">
+            No Projects Yet.
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10 mb-[6rem]">
+            {" "}
+            {filterd.map((p) => (
               <div
-                className={`flex justify-between items-center ${classes.container} z-2 `}
+                key={p._id}
+                className={`${classes.sliderElement} w-[545px] h-[545px]  bg-[image:var(--image-url)] relative px-6 pt-4 `}
+                style={{
+                  boxShadow: "none",
+                  "--image-url": `url(${p.cover})`,
+                }}
               >
-                <div className={`flex items-center gap-2 ${classes.head}`}>
-                  <ProjectNameSVG />
-                  <span className="text-[16px] font-[600]">{p.name}</span>
+                <Link
+                  href={`/projects/${p._id}`}
+                  className="absolute w-full h-full left-0 top-0 rounded-[30px]"
+                ></Link>
+                <div
+                  className={`flex justify-between items-center ${classes.container} z-2 `}
+                >
+                  <div className={`flex items-center gap-2 ${classes.head}`}>
+                    <ProjectNameSVG />
+                    <span className="text-[16px] font-[600]">{p.title}</span>
+                  </div>
+                  <Link href={`/projects/${p._id}`} className={classes.link}>
+                    <span className={classes.arrow}>
+                      <Image
+                        src="/Mask group.svg"
+                        alt="arrow"
+                        width={20}
+                        height={18}
+                        priority
+                      />
+                    </span>
+                    <span className={classes.hidden}>
+                      <Image
+                        src="/Mask white.svg"
+                        alt="arrow"
+                        width={20}
+                        height={18}
+                        priority
+                      />
+                    </span>
+                  </Link>
                 </div>
-                <Link href={p.href} className={classes.link}>
-                  <span className={classes.arrow}>
-                    <Image
-                      src="/Mask group.svg"
-                      alt="arrow"
-                      width={20}
-                      height={18}
-                      priority
-                    />
-                  </span>
-                  <span className={classes.hidden}>
-                    <Image
-                      src="/Mask white.svg"
-                      alt="arrow"
-                      width={20}
-                      height={18}
-                      priority
-                    />
-                  </span>
-                </Link>
-              </div>
-              <span className={`text-[16px]  ${classes.label}`}>{p.label}</span>
-              {/* <Image
+                <span className={`text-[16px]  ${classes.label}`}>
+                  #{p.tags[0]}
+                </span>
+                {/* <Image
                 src={p.img}
                 alt={p.label}
                 className="w-full "
                 width={1135}
                 height={629}
               /> */}
-              {/* <img src={p.img} alt={p.label} className="mt-4" /> */}
-            </div>
-          ))}
-        </div>
+                {/* <img src={p.img} alt={p.label} className="mt-4" /> */}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

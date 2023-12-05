@@ -6,7 +6,7 @@ import Achievements from "@/components/shared/achievements/Achievements";
 // Import Swiper styles
 import "swiper/css";
 import ProjectNameSVG from "@/components/shared/icons/ProjectNameSvg";
-export default function Process() {
+export default function Process({ lang, homeText }) {
   const process = [
     {
       id: 1,
@@ -35,7 +35,13 @@ export default function Process() {
   ];
   return (
     <section className="mt-[20px] mb-[60px] flex flex-col gap-[60px] lg:gap-[30px] lg:flex-row-reverse lg:items-stretch lg:my-[5em]">
-      <Achievements linkTXT={"Contact us"} linkURL={"/contact"} />
+      <Achievements
+        linkTXT={lang == "en" ? "Contact us" : "تواصل بنا"}
+        linkURL={"/contact"}
+        lang={lang}
+        title={homeText.achievementTitle}
+        titleAr={homeText.achievementTitleAr}
+      />
       <div className="lg:w-[40%]">
         <div className="flex justify-center lg:justify-start items-center gap-3">
           {/* <svg

@@ -4,207 +4,6 @@ import React, { useState, useEffect } from "react";
 import { MdDelete } from "react-icons/md";
 import TablePagination from "@mui/material/TablePagination";
 
-// const demoData = [
-//   {
-//     id: 1,
-//     name: "taher",
-//     email: "test1@test.com",
-//     message:
-//       "We are a Kuwait-based company offering creative business solutions that exceed expectations.",
-//     date: "2023-01-31",
-//     time: "19:09:04",
-//   },
-//   {
-//     id: 2,
-//     name: "ali",
-//     email: "test2@test.com",
-//     message:
-//       "We are a Kuwait-based company offering creative business solutions that exceed expectations.",
-//     date: "2023-01-31",
-//     time: "19:09:04",
-//   },
-//   {
-//     id: 3,
-//     name: "ahmed",
-//     email: "test3@test.com",
-//     message:
-//       "We are a Kuwait-based company offering creative business solutions ",
-//     date: "2023-01-31",
-//     time: "19:09:04",
-//   },
-//   {
-//     id: 4,
-//     name: "hussen",
-//     email: "test4@test.com",
-//     message:
-//       "We are a Kuwait-based company offering creative business solutions that exceed expectations.",
-//     date: "2023-01-31",
-//     time: "19:09:04",
-//   },
-//   {
-//     id: 5,
-//     name: "ali",
-//     email: "taherabozeid91@gmail.com",
-//     message:
-//       "We are a Kuwait-based company offering creative business solutions ",
-//     date: "2023-01-31",
-//     time: "19:09:04",
-//   },
-//   {
-//     id: 6,
-//     name: "taher",
-//     email: "test1@test.com",
-//     message:
-//       "We are a Kuwait-based company offering creative business solutions that exceed expectations.",
-//     date: "2023-01-31",
-//     time: "19:09:04",
-//   },
-//   {
-//     id: 7,
-//     name: "ali",
-//     email: "test2@test.com",
-//     message:
-//       "We are a Kuwait-based company offering creative business solutions that exceed expectations.",
-//     date: "2023-01-31",
-//     time: "19:09:04",
-//   },
-//   {
-//     id: 8,
-//     name: "ahmed",
-//     email: "test3@test.com",
-//     message:
-//       "We are a Kuwait-based company offering creative business solutions ",
-//     date: "2023-01-31",
-//     time: "19:09:04",
-//   },
-//   {
-//     id: 9,
-//     name: "hussen",
-//     email: "test4@test.com",
-//     message:
-//       "We are a Kuwait-based company offering creative business solutions that exceed expectations.",
-//     date: "2023-01-31",
-//     time: "19:09:04",
-//   },
-//   {
-//     id: 10,
-//     name: "ali",
-//     email: "taherabozeid91@gmail.com",
-//     message:
-//       "We are a Kuwait-based company offering creative business solutions ",
-//     date: "2023-01-31",
-//     time: "19:09:04",
-//   },
-//   {
-//     id: 11,
-//     name: "ali",
-//     email: "taherabozeid91@gmail.com",
-//     message:
-//       "We are a Kuwait-based company offering creative business solutions ",
-//     date: "2023-01-31",
-//     time: "19:09:04",
-//   },
-//   {
-//     id: 1,
-//     name: "taher",
-//     email: "test1@test.com",
-//     message:
-//       "We are a Kuwait-based company offering creative business solutions that exceed expectations.",
-//     date: "2023-01-31",
-//     time: "19:09:04",
-//   },
-//   {
-//     id: 2,
-//     name: "ali",
-//     email: "test2@test.com",
-//     message:
-//       "We are a Kuwait-based company offering creative business solutions that exceed expectations.",
-//     date: "2023-01-31",
-//     time: "19:09:04",
-//   },
-//   {
-//     id: 3,
-//     name: "ahmed",
-//     email: "test3@test.com",
-//     message:
-//       "We are a Kuwait-based company offering creative business solutions ",
-//     date: "2023-01-31",
-//     time: "19:09:04",
-//   },
-//   {
-//     id: 4,
-//     name: "hussen",
-//     email: "test4@test.com",
-//     message:
-//       "We are a Kuwait-based company offering creative business solutions that exceed expectations.",
-//     date: "2023-01-31",
-//     time: "19:09:04",
-//   },
-//   {
-//     id: 5,
-//     name: "ali",
-//     email: "taherabozeid91@gmail.com",
-//     message:
-//       "We are a Kuwait-based company offering creative business solutions ",
-//     date: "2023-01-31",
-//     time: "19:09:04",
-//   },
-//   {
-//     id: 6,
-//     name: "taher",
-//     email: "test1@test.com",
-//     message:
-//       "We are a Kuwait-based company offering creative business solutions that exceed expectations.",
-//     date: "2023-01-31",
-//     time: "19:09:04",
-//   },
-//   {
-//     id: 7,
-//     name: "ali",
-//     email: "test2@test.com",
-//     message:
-//       "We are a Kuwait-based company offering creative business solutions that exceed expectations.",
-//     date: "2023-01-31",
-//     time: "19:09:04",
-//   },
-//   {
-//     id: 8,
-//     name: "ahmed",
-//     email: "test3@test.com",
-//     message:
-//       "We are a Kuwait-based company offering creative business solutions ",
-//     date: "2023-01-31",
-//     time: "19:09:04",
-//   },
-//   {
-//     id: 9,
-//     name: "hussen",
-//     email: "test4@test.com",
-//     message:
-//       "We are a Kuwait-based company offering creative business solutions that exceed expectations.",
-//     date: "2023-01-31",
-//     time: "19:09:04",
-//   },
-//   {
-//     id: 10,
-//     name: "ali",
-//     email: "taherabozeid91@gmail.com",
-//     message:
-//       "We are a Kuwait-based company offering creative business solutions ",
-//     date: "2023-01-31",
-//     time: "19:09:04",
-//   },
-//   {
-//     id: 11,
-//     name: "ali",
-//     email: "taherabozeid91@gmail.com",
-//     message:
-//       "We are a Kuwait-based company offering creative business solutions ",
-//     date: "2023-01-31",
-//     time: "19:09:04",
-//   },
-// ];
-
 //fetching messages
 const getMessages = async () => {
   try {
@@ -223,8 +22,8 @@ const Inbox = () => {
   const [demoData, setDemoData] = useState([]);
   const [value, setValue] = useState("");
   const [data, setData] = useState(demoData);
+  const [loading, setLoading] = useState(true);
 
-  console.log(demoData);
   //pagination variables
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -261,13 +60,26 @@ const Inbox = () => {
     const { messages } = await getMessages();
     setDemoData(messages);
     setData(messages);
+    setLoading(false);
     // return messages;
   };
   useEffect(() => {
     GetMessages();
   }, []);
   //delete message handler
-  const deleteHandler = () => {};
+  const deleteHandler = async (id) => {
+    const confirmed = confirm("Are you sure?");
+    if (confirmed) {
+      const res = await fetch("http://localhost:3000/api/contact", {
+        method: "DELETE",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({ id }),
+      });
+      if (res.ok) {
+        GetMessages();
+      }
+    }
+  };
   return (
     <div
       className={`bg-bgSoft rounded-lg p-[30px] mt-8 text-gray-300 trcking-[2px]`}
@@ -299,7 +111,9 @@ const Inbox = () => {
         </div>
       </div>
       {demoData.length == 0 ? (
-        <p className="text-center tracking-[2px] my-6">No Messages.</p>
+        <p className="text-center tracking-[2px] my-6">
+          {loading ? "Loading..." : "No Messages."}
+        </p>
       ) : (
         <table className={`w-full `}>
           <thead className={`capitalize text-[1vw] `}>
@@ -325,12 +139,12 @@ const Inbox = () => {
                 </td>
                 <td className={`w-[36%]`}>{el.message}</td>
                 <td className={`w-[20%] `}>
-                  {}
-                  {el.date} {el.time}
+                  {String(el.createdAt).slice(0, 10)}{" "}
+                  {String(el.createdAt).slice(11, 19)}
                 </td>
                 <td className={`w-[5%] text-xl text-red-500 `}>
                   <button
-                    onClick={deleteHandler}
+                    onClick={() => deleteHandler(el._id)}
                     className={`cursor-pointer`}
                     title="Delete"
                   >
