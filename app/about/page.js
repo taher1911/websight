@@ -8,7 +8,7 @@ import Loading from "@/components/shared/loading/Loading";
 
 const fetchHomeText = async () => {
   try {
-    const res = await fetch(`/api/homeText`, {
+    const res = await fetch(`https://websight.vercel.app/api/homeText`, {
       // cache: "no-store",
     });
     if (!res.ok) {
@@ -24,7 +24,7 @@ const fetchHomeText = async () => {
 //fetching services
 const getServices = async () => {
   try {
-    const res = await fetch(`/api/services`);
+    const res = await fetch(`https://websight.vercel.app/api/services`);
     if (!res.ok) {
       throw new Error("Failed to fetch services");
     }
