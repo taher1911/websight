@@ -7,7 +7,7 @@ import Loading from "@/components/shared/loading/Loading";
 //fetching projects
 const getProjects = async () => {
   try {
-    const res = await fetch(`/api/project`);
+    const res = await fetch(`https://websight.vercel.app/api/project`);
     if (!res.ok) {
       throw new Error("Failed to fetch projects");
     }
@@ -19,7 +19,7 @@ const getProjects = async () => {
 //fetch categories
 const fetchCategories = async () => {
   try {
-    const res = await fetch(`/api/category`, {
+    const res = await fetch(`https://websight.vercel.app/api/category`, {
       // cache: "no-store",
     });
     if (!res.ok) {
