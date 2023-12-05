@@ -11,7 +11,7 @@ import { Fragment } from "react";
 
 const fetchHomeText = async () => {
   try {
-    const res = await fetch(`/api/homeText`, {
+    const res = await fetch(`https://websight.vercel.app/api/homeText`, {
       // cache: "no-store",
     });
     if (!res.ok) {
@@ -27,7 +27,7 @@ const fetchHomeText = async () => {
 //fetching services
 const getPartners = async () => {
   try {
-    const res = await fetch(`/api/partner`);
+    const res = await fetch(`https://websight.vercel.app/api/partner`);
     if (!res.ok) {
       throw new Error("Failed to fetch services");
     }
@@ -40,7 +40,7 @@ const getPartners = async () => {
 //fetching services
 const getServices = async () => {
   try {
-    const res = await fetch(`/api/services`);
+    const res = await fetch(`https://websight.vercel.app/api/services`);
     if (!res.ok) {
       throw new Error("Failed to fetch services");
     }
@@ -53,7 +53,7 @@ const getServices = async () => {
 //fetching projects
 const getProjects = async () => {
   try {
-    const res = await fetch(`/api/project`);
+    const res = await fetch(`https://websight.vercel.app/api/project`);
     if (!res.ok) {
       throw new Error("Failed to fetch projects");
     }
